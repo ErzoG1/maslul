@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(python -m http.server --help)",
+      "Bash(cmd //c \"where node\")",
+      "Bash(cmd //c \"where npm\")",
+      "Bash(cmd //c \"where bun\")",
+      "Bash(winget install:*)",
+      "Bash(export PATH=\"/c/Program Files/nodejs:$PATH\")",
+      "Bash(npx --version)"
+    ]
+  }
+}

@@ -1,0 +1,149 @@
+/* ===== Print Styles for Checklist ===== */
+@media print {
+  /* Hide non-essential elements */
+  .site-header,
+  .main-nav,
+  .nav-toggle,
+  .disclaimer-banner,
+  .site-footer,
+  .btn,
+  .tabs,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Reset colors and backgrounds */
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  html {
+    direction: rtl;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* Show all tab panels for print */
+  .tab-panel {
+    display: block !important;
+    page-break-inside: avoid;
+    margin-bottom: 2em;
+  }
+
+  .tab-panel::before {
+    content: attr(data-print-title);
+    display: block;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 14pt;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    border-bottom: 2px solid #000;
+    padding-bottom: 0.25em;
+  }
+
+  /* Checklist items for print */
+  .checklist-item {
+    border-bottom: 1px solid #ccc;
+    padding: 6pt 0;
+    min-height: auto;
+  }
+
+  .checklist-item input[type="checkbox"] {
+    width: 14pt;
+    height: 14pt;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1.5pt solid #000;
+    border-radius: 2pt;
+    margin-top: 1pt;
+  }
+
+  /* Info boxes print nicely */
+  .callout {
+    border: 1pt solid #666;
+    border-right-width: 3pt;
+    padding: 8pt;
+    margin: 8pt 0;
+    background: none;
+  }
+
+  /* Phone numbers section */
+  .phone-cards {
+    display: block;
+  }
+
+  .phone-card {
+    border: 1pt solid #ccc;
+    padding: 6pt;
+    margin-bottom: 6pt;
+    page-break-inside: avoid;
+  }
+
+  .phone-card .phone-icon {
+    display: none;
+  }
+
+  /* Tables */
+  .data-table th,
+  .data-table td {
+    border: 1pt solid #ccc;
+    padding: 4pt 6pt;
+  }
+
+  /* Links: show URL */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #666;
+  }
+
+  /* A4 page setup */
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+
+  /* Prevent breaking inside sections */
+  .timeline-section,
+  .checklist-print-section {
+    page-break-inside: avoid;
+  }
+
+  h2, h3 {
+    page-break-after: avoid;
+  }
+
+  /* Print title */
+  .print-title {
+    display: block !important;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 18pt;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .print-date {
+    display: block !important;
+    text-align: center;
+    font-size: 9pt;
+    color: #666;
+    margin-bottom: 1.5em;
+  }
+
+  .print-disclaimer {
+    display: block !important;
+    text-align: center;
+    font-size: 8pt;
+    color: #666;
+    border-top: 1pt solid #ccc;
+    padding-top: 0.5em;
+    margin-top: 2em;
+  }
+}

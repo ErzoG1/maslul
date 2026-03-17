@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>צ׳קליסט להדפסה | מסלול</title>
+  <meta name="description" content="רשימת משימות מסודרת לאחר פטירה — להדפסה ולשמירה">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&family=Assistant:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/print.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-logo">מסלול</a>
+      <button class="nav-toggle" aria-label="פתח תפריט ניווט" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <nav class="main-nav" aria-label="ניווט ראשי">
+        <ul>
+          <li><a href="index.html">בית</a></li>
+          <li><a href="maslul-mosad.html">המדריך המלא</a></li>
+          <li><a href="hashvaah.html">השוואת קבורה</a></li>
+          <li><a href="checklist.html" aria-current="page">צ׳קליסט</a></li>
+          <li><a href="mekorot.html">מקורות וטלפונים</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Disclaimer Banner -->
+  <div class="disclaimer-banner">
+    מידע זה אינו ייעוץ משפטי, רפואי או פיננסי. לאישור — פנה לגורם הרשמי המצוין.
+  </div>
+
+  <main>
+    <div class="container">
+
+      <!-- Print-only elements -->
+      <div class="print-title" style="display:none;">מסלול — צ׳קליסט לאחר פטירה</div>
+      <div class="print-date" style="display:none;">עדכון: מרץ 2026</div>
+
+      <h1>צ׳קליסט — רשימת משימות לאחר פטירה</h1>
+
+      <div class="no-print mt-lg mb-lg" style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <button id="printBtn" class="btn btn--primary" aria-label="הדפס צ׳קליסט">הדפס / שמור PDF</button>
+        <a href="maslul-mosad.html" class="btn btn--secondary">למדריך המלא</a>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs no-print" role="tablist" aria-label="בחירת תקופה">
+        <button class="tab-btn is-active" data-tab="tab-first" role="tab" aria-selected="true" aria-controls="tab-first">שעות ראשונות + שבוע ראשון</button>
+        <button class="tab-btn" data-tab="tab-month" role="tab" aria-selected="false" aria-controls="tab-month">חודש ראשון + שנה ראשונה</button>
+      </div>
+
+      <!-- Tab 1: First Hours + First Week -->
+      <div class="tab-panel is-active" id="tab-first" role="tabpanel" data-print-title="שעות ראשונות + שבוע ראשון">
+
+        <h2>השעות הראשונות</h2>
+        <ul class="checklist">
+          <li class="checklist-item">
+            <input type="checkbox" id="p-1" aria-label="הודעת פטירה">
+            <label for="p-1">קבלת הודעת פטירה רשמית מהמוסד (3 עותקים)</label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-2" aria-label="רישיון קבורה">
+            <label for="p-2">קבלת רישיון קבורה</label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-3" aria-label="חברה קדישא">
+            <label for="p-3">התקשרות לחברה קדישא (*0120) או לספק קבורה אזרחית</label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-4" aria-label="תיאום הלוויה">
+            <label for="p-4">תיאום תאריך ושעת הלוויה</label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-5" aria-label="הודעה למשפחה">
+            <label for="p-5">הודעה לבני משפחה קרובים</label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-6" aria-label="בחירת בית עלמין">
+            <label for="p-6">בחירת בית עלמין (אם יש אפשרות)</label>
+          </li>
+        </ul>
+
+        <h2 class="mt-xl">תוך שבוע (שבעה)</h2>
+        <ul class="checklist">
+          <li class="checklist-item">
+            <input type="checkbox" id="p-7" aria-label="הלוויה">
+            <label for="p-7">ההלוויה והקבורה התקיימו</label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-8" aria-label="שבעה">
+            <label for="p-8">שבעה — 7 ימי אבל</label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-9" aria-label="סידור בית">
+            <label for="p-9">סידור בית/מקום לשבעה (כיסאות נמוכות, נרות)</label>
+          </li>
+        </ul>
+
+        <div class="callout callout--info mt-lg">
+          <strong>תזכורת</strong>
+          <p>לא חייבים לטפל בבירוקרטיה בשבוע הראשון. הכל יכול לחכות.</p>
+        </div>
+
+        <!-- Phone Numbers for Print -->
+        <div class="mt-xl">
+          <h3>מספרי טלפון חשובים</h3>
+          <ul style="list-style:none; padding:0;">
+            <li style="padding: 0.5rem 0;">חברה קדישא: <strong style="direction:ltr; unicode-bidi:embed;">*0120</strong> (24/7)</li>
+            <li style="padding: 0.5rem 0;">מד"א: <strong style="direction:ltr; unicode-bidi:embed;">101</strong></li>
+            <li style="padding: 0.5rem 0;">ביטוח לאומי: <strong style="direction:ltr; unicode-bidi:embed;">*6050</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab 2: First Month + First Year -->
+      <div class="tab-panel" id="tab-month" role="tabpanel" data-print-title="חודש ראשון + שנה ראשונה">
+
+        <h2>תוך 30 יום</h2>
+        <ul class="checklist">
+          <li class="checklist-item">
+            <input type="checkbox" id="p-10" aria-label="תעודת פטירה">
+            <label for="p-10">הזמנת תעודת פטירה רשמית — <a href="https://www.gov.il/he/service/request-death-certificate" target="_blank" rel="noopener">gov.il</a></label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-11" aria-label="קצבת שאירים">
+            <label for="p-11">תביעת קצבת שאירים — <a href="https://www.btl.gov.il/benefits/Survivors/Pages/default.aspx" target="_blank" rel="noopener">ביטוח לאומי</a></label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-12" aria-label="הר הביטוח">
+            <label for="p-12">בדיקת פוליסות בהר הביטוח — <a href="https://harb.cma.gov.il" target="_blank" rel="noopener">harb.cma.gov.il</a></label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-13" aria-label="בנקים">
+            <label for="p-13">הודעה לבנקים על הפטירה</label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-14" aria-label="ביטול שירותים">
+            <label for="p-14">ביטול שירותים: חשמל, מים, טלפון, אינטרנט</label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-15" aria-label="ביטול כרטיסי אשראי">
+            <label for="p-15">ביטול כרטיסי אשראי</label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-16" aria-label="קופת חולים">
+            <label for="p-16">הודעה לקופת חולים</label>
+          </li>
+        </ul>
+
+        <h2 class="mt-xl">תוך שנה — עיזבון וירושה</h2>
+        <ul class="checklist">
+          <li class="checklist-item">
+            <input type="checkbox" id="p-17" aria-label="צו ירושה">
+            <label for="p-17">הגשת בקשה לצו ירושה / צו קיום צוואה — <a href="https://www.gov.il/he/service/request-for-inheritance-order" target="_blank" rel="noopener">gov.il</a></label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-18" aria-label="טאבו">
+            <label for="p-18">העברת מקרקעין (טאבו) — דורש צו ירושה</label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-19" aria-label="ביטוח חיים">
+            <label for="p-19">מימוש ביטוח חיים</label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-20" aria-label="קרנות פנסיה">
+            <label for="p-20">בדיקת קרנות פנסיה ופיצויי פיטורין</label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-21" aria-label="מצבה">
+            <label for="p-21">הקמת מצבה (בד"כ לאחר 11 חודש)</label>
+          </li>
+          <li class="checklist-item">
+            <input type="checkbox" id="p-22" aria-label="מס הכנסה">
+            <label for="p-22">סגירת תיק מס הכנסה — דו"ח סופי לשנת הפטירה</label>
+          </li>
+        </ul>
+
+        <!-- Official Links for Print -->
+        <div class="mt-xl">
+          <h3>קישורים רשמיים</h3>
+          <ul style="list-style:none; padding:0;">
+            <li style="padding: 0.5rem 0;"><a href="https://www.gov.il" target="_blank" rel="noopener">gov.il</a> — שירותי ממשלה</li>
+            <li style="padding: 0.5rem 0;"><a href="https://www.btl.gov.il" target="_blank" rel="noopener">btl.gov.il</a> — ביטוח לאומי</li>
+            <li style="padding: 0.5rem 0;"><a href="https://harb.cma.gov.il" target="_blank" rel="noopener">harb.cma.gov.il</a> — הר הביטוח</li>
+            <li style="padding: 0.5rem 0;"><a href="https://www.kolzchut.org.il" target="_blank" rel="noopener">kolzchut.org.il</a> — כל-זכות</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Print Disclaimer -->
+      <div class="print-disclaimer" style="display:none;">
+        מידע זה אינו ייעוץ משפטי, רפואי או פיננסי. לאישור — פנה לגורם הרשמי המצוין. · עדכון: מרץ 2026 · maslul.info
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="disclaimer">מידע זה אינו ייעוץ משפטי, רפואי או פיננסי. לאישור — פנה לגורם הרשמי המצוין.</p>
+      <p class="footer-meta">עדכון אחרון: <span class="dynamic-date">מרץ 2026</span> · <a href="mekorot.html">אודות השירות ומקורות</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

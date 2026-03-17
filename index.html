@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מסלול — מדריך מידע לתהליך הקבורה בישראל</title>
+  <meta name="description" content="מדריך מידע ניטרלי לתהליך הקבורה בישראל — מהרגע הראשון ועד סגירת העיזבון">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&family=Assistant:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-logo">מסלול</a>
+      <button class="nav-toggle" aria-label="פתח תפריט ניווט" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <nav class="main-nav" aria-label="ניווט ראשי">
+        <ul>
+          <li><a href="index.html" aria-current="page">בית</a></li>
+          <li><a href="maslul-mosad.html">המדריך המלא</a></li>
+          <li><a href="hashvaah.html">השוואת קבורה</a></li>
+          <li><a href="checklist.html">צ׳קליסט</a></li>
+          <li><a href="mekorot.html">מקורות וטלפונים</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Disclaimer Banner -->
+  <div class="disclaimer-banner">
+    מידע זה אינו ייעוץ משפטי, רפואי או פיננסי. לאישור — פנה לגורם הרשמי המצוין.
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>מישהו נפטר. מה עושים עכשיו?</h1>
+        <p class="subtitle">מדריך מידע ניטרלי לתהליך הקבורה בישראל — מהרגע הראשון ועד סגירת העיזבון</p>
+        <a href="#selector" class="btn btn--primary btn--large">התחל — מצא את המסלול שלך</a>
+      </div>
+    </section>
+
+    <!-- Situation Selector -->
+    <section class="selector-section" id="selector">
+      <div class="container">
+
+        <!-- Step 1 -->
+        <div class="selector-step" id="step1">
+          <span class="step-label">שלב 1 מתוך 2</span>
+          <h2>מה הסיטואציה?</h2>
+          <div class="radio-cards" role="radiogroup" aria-label="בחירת סיטואציה">
+
+            <div class="radio-card">
+              <input type="radio" name="situation" id="sit-mosad" value="mosad">
+              <label for="sit-mosad">
+                <span class="radio-indicator" aria-hidden="true"></span>
+                הפטירה הייתה במוסד רפואי
+              </label>
+            </div>
+
+            <div class="radio-card">
+              <input type="radio" name="situation" id="sit-bayit" value="bayit">
+              <label for="sit-bayit">
+                <span class="radio-indicator" aria-hidden="true"></span>
+                הפטירה הייתה בבית
+              </label>
+            </div>
+
+            <div class="radio-card">
+              <input type="radio" name="situation" id="sit-lo-tzapuy" value="lo-tzapuy">
+              <label for="sit-lo-tzapuy">
+                <span class="radio-indicator" aria-hidden="true"></span>
+                מוות לא צפוי (תאונה / אירוע)
+              </label>
+            </div>
+
+            <div class="radio-card">
+              <input type="radio" name="situation" id="sit-chutz" value="chutz">
+              <label for="sit-chutz">
+                <span class="radio-indicator" aria-hidden="true"></span>
+                הנפטר/ת בחו״ל
+              </label>
+            </div>
+
+            <div class="radio-card">
+              <input type="radio" name="situation" id="sit-hemshech" value="hemshech">
+              <label for="sit-hemshech">
+                <span class="radio-indicator" aria-hidden="true"></span>
+                הפטירה הייתה לפני כמה ימים — צריך/ה עזרה עם המשך
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="selector-step" id="step2">
+          <span class="step-label">שלב 2 מתוך 2</span>
+          <h2>איזה סוג קבורה?</h2>
+          <div class="radio-cards" role="radiogroup" aria-label="בחירת סוג קבורה">
+
+            <div class="radio-card">
+              <input type="radio" name="burial" id="bur-datit" value="datit">
+              <label for="bur-datit">
+                <span class="radio-indicator" aria-hidden="true"></span>
+                קבורה דתית (חברה קדישא)
+              </label>
+            </div>
+
+            <div class="radio-card">
+              <input type="radio" name="burial" id="bur-ezrachit" value="ezrachit">
+              <label for="bur-ezrachit">
+                <span class="radio-indicator" aria-hidden="true"></span>
+                קבורה אזרחית
+              </label>
+            </div>
+
+            <div class="radio-card">
+              <input type="radio" name="burial" id="bur-help" value="help">
+              <label for="bur-help">
+                <span class="radio-indicator" aria-hidden="true"></span>
+                עדיין לא יודע/ת — הסבר לי את ההבדלים
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="disclaimer">מידע זה אינו ייעוץ משפטי, רפואי או פיננסי. לאישור — פנה לגורם הרשמי המצוין.</p>
+      <p class="footer-meta">עדכון אחרון: <span class="dynamic-date">מרץ 2026</span> · <a href="mekorot.html">אודות השירות ומקורות</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
