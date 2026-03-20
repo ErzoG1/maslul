@@ -1,21 +1,21 @@
 /* ===== CSS Custom Properties ===== */
 :root {
-  --color-bg: #F7F3EE;
+  --color-bg: #F2EAE0;
   --color-text: #2D2D2D;
-  --color-primary: #5C7A5F;
-  --color-primary-light: #7a9a7d;
-  --color-primary-dark: #4a6349;
-  --color-accent: #C4903A;
-  --color-accent-light: #d4a85a;
+  --color-primary: #9B8EC7;
+  --color-primary-light: #BDA6CE;
+  --color-primary-dark: #7b6dab;
+  --color-accent: #B4D3D9;
+  --color-accent-light: #d4e8ec;
   --color-alert: #C4654A;
   --color-alert-light: #f5e6e2;
   --color-border: #d9d3cc;
   --color-card-bg: #ffffff;
   --color-muted: #6b6560;
-  --color-link: #5C7A5F;
-  --color-link-hover: #4a6349;
+  --color-link: #7b6dab;
+  --color-link-hover: #9B8EC7;
 
-  --font-display: 'Frank Ruhl Libre', serif;
+  --font-display: 'Assistant', sans-serif;
   --font-body: 'Assistant', sans-serif;
 
   --space-xs: 0.25rem;
@@ -265,7 +265,7 @@ a:focus-visible {
 }
 
 .btn--accent:hover {
-  background-color: #b3822f;
+  background-color: #8fb8bf;
   color: #fff;
 }
 
@@ -335,7 +335,7 @@ a:focus-visible {
 
 .radio-card input[type="radio"]:checked + label {
   border-color: var(--color-primary);
-  background-color: #f0f5f0;
+  background-color: #f0edf5;
 }
 
 .radio-card input[type="radio"]:focus-visible + label {
@@ -575,12 +575,12 @@ a:focus-visible {
 }
 
 .callout--info {
-  background: #f0f5f0;
+  background: #f0edf5;
   border-right: 4px solid var(--color-primary);
 }
 
 .callout--warning {
-  background: #fdf6ec;
+  background: #e8f2f4;
   border-right: 4px solid var(--color-accent);
 }
 
@@ -621,12 +621,12 @@ a:focus-visible {
 
 .data-table th {
   font-weight: 700;
-  background: #f5f2ed;
+  background: #f0edf5;
   white-space: nowrap;
 }
 
 .data-table tr:hover td {
-  background: #faf8f5;
+  background: #f7f0fa;
 }
 
 .data-table a {
@@ -818,7 +818,7 @@ a:focus-visible {
   margin: 0 auto var(--space-md);
   line-height: 1.6;
   padding: var(--space-md);
-  background: #fdf6ec;
+  background: #e8f2f4;
   border-radius: var(--radius-md);
 }
 
@@ -831,9 +831,32 @@ a:focus-visible {
   color: var(--color-muted);
 }
 
+.footer-credit {
+  margin-top: var(--space-md);
+  font-size: 10px;
+  color: var(--color-muted);
+  direction: ltr;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.footer-credit a {
+  color: var(--color-muted);
+}
+
+.footer-credit a:hover {
+  color: var(--color-link-hover);
+}
+
+.footer-logo {
+  height: 28px;
+  width: auto;
+  vertical-align: middle;
+}
+
 /* ===== Page-Level Disclaimer Banner ===== */
 .disclaimer-banner {
-  background: #fdf6ec;
+  background: #e8f2f4;
   padding: var(--space-md) var(--space-lg);
   text-align: center;
   font-size: 0.85rem;
