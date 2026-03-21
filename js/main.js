@@ -32,6 +32,8 @@
   let selectedBurial = null;
 
   // Route map: situation + burial → page
+  // All situations route to the main guide (maslul-mosad.html) which covers the full process.
+  // 'help' always routes to the comparison page.
   const routes = {
     'mosad': {
       'datit': 'maslul-mosad.html',
@@ -39,23 +41,23 @@
       'help': 'hashvaah.html'
     },
     'bayit': {
-      'datit': 'maslul-bayit.html',
-      'ezrachit': 'maslul-bayit.html',
+      'datit': 'maslul-mosad.html',
+      'ezrachit': 'maslul-mosad.html',
       'help': 'hashvaah.html'
     },
     'lo-tzapuy': {
-      'datit': 'maslul-lo-tzapuy.html',
-      'ezrachit': 'maslul-lo-tzapuy.html',
+      'datit': 'maslul-mosad.html',
+      'ezrachit': 'maslul-mosad.html',
       'help': 'hashvaah.html'
     },
     'chutz': {
-      'datit': 'maslul-chutz.html',
-      'ezrachit': 'maslul-chutz.html',
+      'datit': 'maslul-mosad.html',
+      'ezrachit': 'maslul-mosad.html',
       'help': 'hashvaah.html'
     },
     'hemshech': {
-      'datit': 'maslul-hemshech.html',
-      'ezrachit': 'maslul-hemshech.html',
+      'datit': 'checklist.html',
+      'ezrachit': 'checklist.html',
       'help': 'hashvaah.html'
     }
   };

@@ -1,6 +1,6 @@
 /* ===== CSS Custom Properties ===== */
 :root {
-  --color-bg: #EFEFEF;
+  --color-bg: #ffffff;
   --color-text: #2D2D2D;
   --color-primary: #9B8EC7;
   --color-primary-light: #BDA6CE;
@@ -196,6 +196,17 @@ a:focus-visible {
   color: var(--color-primary);
 }
 
+.main-nav a[aria-current="page"] {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-md);
+}
+
+.main-nav a[aria-current="page"]:hover {
+  background-color: var(--color-primary-dark);
+  color: #fff;
+}
+
 /* ===== Hero ===== */
 .hero {
   padding: var(--space-3xl) 0;
@@ -255,18 +266,18 @@ a:focus-visible {
 }
 
 .btn--secondary:hover {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-dark);
   color: #fff;
 }
 
 .btn--accent {
   background-color: var(--color-accent);
-  color: #fff;
+  color: var(--color-text);
 }
 
 .btn--accent:hover {
   background-color: #8fb8bf;
-  color: #fff;
+  color: var(--color-text);
 }
 
 .btn--large {
