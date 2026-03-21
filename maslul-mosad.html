@@ -59,13 +59,13 @@
       <h1>פטירה במוסד רפואי — המדריך המלא</h1>
 
       <!-- Progress Bar -->
-      <div class="progress-bar" role="navigation" aria-label="שלבי התהליך">
-        <div class="progress-step is-active" data-section="section-now">שעות ראשונות</div>
-        <div class="progress-step" data-section="section-24h">תוך 24 שעות</div>
-        <div class="progress-step" data-section="section-week">שבוע</div>
-        <div class="progress-step" data-section="section-month">חודש</div>
-        <div class="progress-step" data-section="section-year">שנה</div>
-      </div>
+      <nav class="progress-bar" aria-label="שלבי התהליך">
+        <a href="#section-now" class="progress-step is-active">שעות ראשונות</a>
+        <a href="#section-24h" class="progress-step">תוך 24 שעות</a>
+        <a href="#section-week" class="progress-step">שבוע</a>
+        <a href="#section-month" class="progress-step">חודש</a>
+        <a href="#section-year" class="progress-step">שנה</a>
+      </nav>
 
       <!-- Section A: Now -->
       <section class="timeline-section timeline-section--urgent" id="section-now">
@@ -163,74 +163,71 @@
       <section class="timeline-section" id="section-month">
         <h2>תוך 30 יום</h2>
 
-        <div class="table-wrapper">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th scope="col">מה לעשות</th>
-                <th scope="col">היכן</th>
-                <th scope="col">קישור</th>
-                <th scope="col">הערה</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>תעודת פטירה רשמית</td>
-                <td>משרד הפנים אונליין</td>
-                <td><a href="https://www.gov.il/he/service/request-death-certificate" target="_blank" rel="noopener">gov.il</a></td>
-                <td>כ-2 שבועות עיבוד</td>
-              </tr>
-              <tr>
-                <td>תביעת קצבת שאירים</td>
-                <td>ביטוח לאומי</td>
-                <td><a href="https://www.btl.gov.il/benefits/Survivors/Pages/default.aspx" target="_blank" rel="noopener">btl.gov.il</a></td>
-                <td>עד 12 חודש רטרואקטיבי</td>
-              </tr>
-              <tr>
-                <td>הר הביטוח — חיפוש פוליסות</td>
-                <td>רשות שוק ההון</td>
-                <td><a href="https://harb.cma.gov.il" target="_blank" rel="noopener">harb.cma.gov.il</a></td>
-                <td>מציג כל ביטוחי הנפטר/ת</td>
-              </tr>
-              <tr>
-                <td>הודעה לבנקים</td>
-                <td>כל בנק בנפרד</td>
-                <td>—</td>
-                <td>חשבון מוקפא עד צו ירושה</td>
-              </tr>
-              <tr>
-                <td>ביטול: חשמל, מים, טלפון</td>
-                <td>כל ספק בנפרד</td>
-                <td>—</td>
-                <td>אפשר לאחר שלושים גם</td>
-              </tr>
-              <tr>
-                <td>ביטול מנויי תקשורת</td>
-                <td>חברות תקשורת</td>
-                <td><a href="telecom.html">תקשורת →</a></td>
-                <td>סלקום, פרטנר, בזק, הוט, יס</td>
-              </tr>
-              <tr>
-                <td>הסדרת רכב</td>
-                <td>משרד הרישוי</td>
-                <td><a href="vehicle.html">רכב →</a></td>
-                <td>זמני עד שנה ללא צו ירושה</td>
-              </tr>
-              <tr>
-                <td>נדל"ן / דירה בטאבו</td>
-                <td>רשם המקרקעין</td>
-                <td><a href="realestate.html">נדל"ן →</a></td>
-                <td>₪183 אגרה, מחייב צו ירושה</td>
-              </tr>
-              <tr>
-                <td>מדריך בנקים</td>
-                <td>כל בנק בנפרד</td>
-                <td><a href="banks.html">בנקים →</a></td>
-                <td>חשבון מוקפא ללא סעיף אריכות ימים</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <ol class="numbered-steps">
+          <li class="numbered-step">
+            <span class="step-number" aria-hidden="true">1</span>
+            <div class="step-content">
+              <h3>תעודת פטירה רשמית</h3>
+              <p class="step-note">מסמך רשמי שמוכיח את הפטירה. נדרש לכל פעולה בירוקרטית — בנקים, ביטוח לאומי, טאבו ועוד. ניתן להזמין אונליין באתר משרד הפנים. זמן עיבוד: כ-2 שבועות.</p>
+              <a href="https://www.gov.il/he/service/request-death-certificate" target="_blank" rel="noopener" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">הזמן תעודת פטירה — gov.il</a>
+            </div>
+          </li>
+          <li class="numbered-step">
+            <span class="step-number" aria-hidden="true">2</span>
+            <div class="step-content">
+              <h3>תביעת קצבת שאירים</h3>
+              <p class="step-note">קצבה חודשית מביטוח לאומי לבן/בת הזוג ולילדים עד גיל 18 (או 20 אם בשירות צבאי). הקצבה משולמת רטרואקטיבית עד 12 חודש אחורה — כדאי להגיש מוקדם.</p>
+              <a href="https://www.btl.gov.il/benefits/Survivors/Pages/default.aspx" target="_blank" rel="noopener" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">הגש תביעה — ביטוח לאומי</a>
+            </div>
+          </li>
+          <li class="numbered-step">
+            <span class="step-number" aria-hidden="true">3</span>
+            <div class="step-content">
+              <h3>הר הביטוח — חיפוש פוליסות</h3>
+              <p class="step-note">שירות חינמי של רשות שוק ההון שמראה את כל פוליסות הביטוח של הנפטר/ת — ביטוח חיים, בריאות, פנסיה, חיסכון. חשוב לבדוק כדי לא לפספס כספים שמגיעים למשפחה.</p>
+              <a href="https://harb.cma.gov.il" target="_blank" rel="noopener" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">חפש פוליסות — harb.cma.gov.il</a>
+            </div>
+          </li>
+          <li class="numbered-step">
+            <span class="step-number" aria-hidden="true">4</span>
+            <div class="step-content">
+              <h3>הודעה לבנקים</h3>
+              <p class="step-note">הבנק בדרך כלל מקבל הודעה אוטומטית ממרשם האוכלוסין, אך כדאי לפנות בנפרד. אם יש חשבון משותף עם סעיף ״אריכות ימים״ — בן/בת הזוג יכול/ה להמשיך בפעילות שוטפת. ללא הסעיף — החשבון מוקפא.</p>
+              <a href="banks.html" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">מדריך בנקים מפורט →</a>
+            </div>
+          </li>
+          <li class="numbered-step">
+            <span class="step-number" aria-hidden="true">5</span>
+            <div class="step-content">
+              <h3>ביטול מנויי תקשורת</h3>
+              <p class="step-note">ביטול מנויי סלולר, אינטרנט, טלוויזיה וטלפון קווי. לפי חוק, חברות תקשורת חייבות לבטל תוך 3 ימי עסקים. יש לשלוח תעודת פטירה + ת"ז שלך.</p>
+              <a href="telecom.html" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">מדריך ביטול תקשורת →</a>
+            </div>
+          </li>
+          <li class="numbered-step">
+            <span class="step-number" aria-hidden="true">6</span>
+            <div class="step-content">
+              <h3>ביטול שירותים: חשמל, מים, ארנונה</h3>
+              <p class="step-note">יש לפנות לכל ספק בנפרד עם תעודת פטירה. אפשר לטפל גם אחרי השלושים — אין קנס על עיכוב. אם הדירה נשארת מאוכלסת, אפשר להעביר את החשבון על שם בן/בת הזוג.</p>
+            </div>
+          </li>
+          <li class="numbered-step">
+            <span class="step-number" aria-hidden="true">7</span>
+            <div class="step-content">
+              <h3>הסדרת רכב</h3>
+              <p class="step-note">אם לנפטר/ת היה רכב — צריך להעביר בעלות במשרד הרישוי. לבן/בת זוג התהליך פשוט (תצהיר עו"ד בלבד). ליורש אחר נדרש צו ירושה. ניתן לקבל רישיון זמני לשנה בינתיים.</p>
+              <a href="vehicle.html" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">מדריך העברת רכב →</a>
+            </div>
+          </li>
+          <li class="numbered-step">
+            <span class="step-number" aria-hidden="true">8</span>
+            <div class="step-content">
+              <h3>נדל"ן / דירה — רישום בטאבו</h3>
+              <p class="step-note">העברת דירה על שם היורשים בלשכת רישום מקרקעין (טאבו). ההעברה עצמה פטורה ממס, אך מכירה עתידית עלולה לחייב במס שבח. אגרה: ₪183. מחייב צו ירושה.</p>
+              <a href="realestate.html" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">מדריך נדל"ן בירושה →</a>
+            </div>
+          </li>
+        </ol>
       </section>
 
       <!-- Section E: Within a Year -->
