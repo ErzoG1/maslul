@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>מסלול — מדריך מידע לתהליך הקבורה בישראל</title>
-  <meta name="description" content="מדריך מידע ניטרלי לתהליך הקבורה בישראל — מהרגע הראשון ועד סגירת העיזבון">
+  <meta name="description" content="מדריך מידע ניטרלי — הכנות מראש, מדריך לאחר פטירה, ומקורות רשמיים">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
@@ -26,14 +26,26 @@
       <nav class="main-nav" aria-label="ניווט ראשי">
         <ul>
           <li><a href="index.html" aria-current="page">בית</a></li>
-          <li><a href="maslul-mosad.html">המדריך המלא</a></li>
-          <li><a href="hashvaah.html">השוואת קבורה</a></li>
-          <li><a href="checklist.html">צ׳קליסט</a></li>
-          <li><a href="mekorot.html">מקורות וטלפונים</a></li>
-          <li><a href="banks.html">בנקים</a></li>
-          <li><a href="telecom.html">תקשורת</a></li>
-          <li><a href="vehicle.html">רכב</a></li>
-          <li><a href="realestate.html">נדל"ן</a></li>
+          <li><a href="preparation.html">להתכונן מראש</a></li>
+          <li class="nav-group">
+            <button class="nav-group-label" aria-expanded="false">כשזה קורה <span class="arrow" aria-hidden="true">▾</span></button>
+            <ul class="nav-dropdown">
+              <li><a href="maslul-mosad.html">המדריך המלא</a></li>
+              <li><a href="checklist.html">צ׳קליסט</a></li>
+              <li><a href="hashvaah.html">השוואת קבורה</a></li>
+              <li><a href="banks.html">בנקים</a></li>
+              <li><a href="telecom.html">תקשורת</a></li>
+              <li><a href="vehicle.html">רכב</a></li>
+              <li><a href="realestate.html">נדל"ן</a></li>
+            </ul>
+          </li>
+          <li class="nav-group">
+            <button class="nav-group-label" aria-expanded="false">מידע ומקורות <span class="arrow" aria-hidden="true">▾</span></button>
+            <ul class="nav-dropdown">
+              <li><a href="mekorot.html">טלפונים ומקורות</a></li>
+              <li><a href="lawyer-guide.html">מדריך עורכי דין</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </div>
@@ -48,98 +60,54 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container">
-        <h1>מישהו נפטר. מה עושים עכשיו?</h1>
-        <p class="subtitle">מדריך מידע ניטרלי לתהליך הקבורה בישראל — מהרגע הראשון ועד סגירת העיזבון</p>
-        <a href="#selector" class="btn btn--primary btn--large">התחל — מצא את המסלול שלך</a>
+        <h1>מסלול</h1>
+        <p class="subtitle">מדריך מידע ניטרלי ועצמאי למשפחות ישראליות —<br>להכנה מראש, לרגע האמת, ולכל מה שאחרי</p>
       </div>
     </section>
 
-    <!-- Situation Selector -->
-    <section class="selector-section" id="selector">
+    <!-- Three Pillars -->
+    <section style="padding: 0 0 var(--space-3xl);">
       <div class="container">
+        <div class="pillars-grid">
 
-        <!-- Step 1 -->
-        <div class="selector-step" id="step1">
-          <span class="step-label">שלב 1 מתוך 2</span>
-          <h2>מה הסיטואציה?</h2>
-          <div class="radio-cards" role="radiogroup" aria-label="בחירת סיטואציה">
+          <!-- Pillar 1: Preparation -->
+          <a href="preparation.html" class="pillar-card pillar-card--prep">
+            <div class="pillar-icon">🛡️</div>
+            <h2>להתכונן מראש</h2>
+            <p>צוואה, ייפוי כוח, הנחיות רפואיות, תיק חיים, מוטבים, חשבונות בנק — כל מה שכדאי לסדר היום, כדי שהמשפחה לא תצטרך לשבור את הראש מחר.</p>
+            <span class="pillar-cta">למדריך ההכנה ←</span>
+          </a>
 
-            <div class="radio-card">
-              <input type="radio" name="situation" id="sit-mosad" value="mosad">
-              <label for="sit-mosad">
-                <span class="radio-indicator" aria-hidden="true"></span>
-                הפטירה הייתה במוסד רפואי
-              </label>
-            </div>
+          <!-- Pillar 2: When It Happens -->
+          <a href="maslul-mosad.html" class="pillar-card pillar-card--now">
+            <div class="pillar-icon">📋</div>
+            <h2>מישהו נפטר — מה עכשיו?</h2>
+            <p>מדריך צעד אחר צעד מהשעה הראשונה ועד סגירת העיזבון. כולל: צ'קליסט, בנקים, תקשורת, רכב, נדל"ן, והשוואת סוגי קבורה.</p>
+            <span class="pillar-cta">למדריך המלא ←</span>
+          </a>
 
-            <div class="radio-card">
-              <input type="radio" name="situation" id="sit-bayit" value="bayit">
-              <label for="sit-bayit">
-                <span class="radio-indicator" aria-hidden="true"></span>
-                הפטירה הייתה בבית
-              </label>
-            </div>
+          <!-- Pillar 3: Info & Sources -->
+          <a href="mekorot.html" class="pillar-card pillar-card--info">
+            <div class="pillar-icon">📞</div>
+            <h2>מידע ומקורות</h2>
+            <p>מספרי חירום, גופים ממשלתיים, כלי איתור נכסים, ומדריך עורכי דין — כל המקורות הרשמיים במקום אחד.</p>
+            <span class="pillar-cta">לטלפונים ומקורות ←</span>
+          </a>
 
-            <div class="radio-card">
-              <input type="radio" name="situation" id="sit-lo-tzapuy" value="lo-tzapuy">
-              <label for="sit-lo-tzapuy">
-                <span class="radio-indicator" aria-hidden="true"></span>
-                מוות לא צפוי (תאונה / אירוע)
-              </label>
-            </div>
-
-            <div class="radio-card">
-              <input type="radio" name="situation" id="sit-chutz" value="chutz">
-              <label for="sit-chutz">
-                <span class="radio-indicator" aria-hidden="true"></span>
-                הנפטר/ת בחו״ל
-              </label>
-            </div>
-
-            <div class="radio-card">
-              <input type="radio" name="situation" id="sit-hemshech" value="hemshech">
-              <label for="sit-hemshech">
-                <span class="radio-indicator" aria-hidden="true"></span>
-                הפטירה הייתה לפני כמה ימים — צריך/ה עזרה עם המשך
-              </label>
-            </div>
-
-          </div>
         </div>
 
-        <!-- Step 2 -->
-        <div class="selector-step" id="step2">
-          <span class="step-label">שלב 2 מתוך 2</span>
-          <h2>איזה סוג קבורה?</h2>
-          <div class="radio-cards" role="radiogroup" aria-label="בחירת סוג קבורה">
-
-            <div class="radio-card">
-              <input type="radio" name="burial" id="bur-datit" value="datit">
-              <label for="bur-datit">
-                <span class="radio-indicator" aria-hidden="true"></span>
-                קבורה דתית (חברה קדישא)
-              </label>
-            </div>
-
-            <div class="radio-card">
-              <input type="radio" name="burial" id="bur-ezrachit" value="ezrachit">
-              <label for="bur-ezrachit">
-                <span class="radio-indicator" aria-hidden="true"></span>
-                קבורה אזרחית
-              </label>
-            </div>
-
-            <div class="radio-card">
-              <input type="radio" name="burial" id="bur-help" value="help">
-              <label for="bur-help">
-                <span class="radio-indicator" aria-hidden="true"></span>
-                עדיין לא יודע/ת — הסבר לי את ההבדלים
-              </label>
-            </div>
-
+        <!-- Quick links under pillars -->
+        <div class="quick-links">
+          <h3>גישה מהירה</h3>
+          <div class="quick-links-grid">
+            <a href="checklist.html" class="quick-link">📝 צ'קליסט להדפסה</a>
+            <a href="hashvaah.html" class="quick-link">⚖️ דתית מול אזרחית</a>
+            <a href="banks.html" class="quick-link">🏦 מדריך בנקים</a>
+            <a href="telecom.html" class="quick-link">📱 ביטול מנויים</a>
+            <a href="vehicle.html" class="quick-link">🚗 רכב בירושה</a>
+            <a href="realestate.html" class="quick-link">🏠 נדל"ן בירושה</a>
           </div>
         </div>
-
       </div>
     </section>
   </main>

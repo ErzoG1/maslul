@@ -22,6 +22,38 @@
     });
   }
 
+  /* ----- Dropdown Nav Groups ----- */
+  var navGroups = document.querySelectorAll('.nav-group');
+  navGroups.forEach(function(group) {
+    var btn = group.querySelector('.nav-group-label');
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        var isOpen = group.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', isOpen);
+        // Close other groups
+        navGroups.forEach(function(other) {
+          if (other !== group) {
+            other.classList.remove('is-open');
+            var otherBtn = other.querySelector('.nav-group-label');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    }
+  });
+
+  // Close dropdowns on click outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-group')) {
+      navGroups.forEach(function(group) {
+        group.classList.remove('is-open');
+        var btn = group.querySelector('.nav-group-label');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+
   /* ----- Situation Selector (Home Page) ----- */
   const step1Radios = document.querySelectorAll('input[name="situation"]');
   const step2Container = document.getElementById('step2');
