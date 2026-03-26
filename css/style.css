@@ -134,7 +134,15 @@ a:focus-visible {
 }
 
 .site-logo:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-primary);
+}
+
+.site-logo img {
+  height: 32px;
+  width: auto;
+  vertical-align: middle;
+  margin-left: var(--space-sm);
+  border-radius: 6px;
 }
 
 .nav-toggle {
@@ -193,18 +201,20 @@ a:focus-visible {
 }
 
 .main-nav a:hover {
-  color: var(--color-primary);
+  font-weight: 700;
+  color: #000;
 }
 
 .main-nav a[aria-current="page"] {
-  background-color: var(--color-primary);
-  color: #fff;
-  border-radius: var(--radius-md);
+  background: none;
+  color: var(--color-primary);
+  font-weight: 700;
+  border-radius: 0;
 }
 
 .main-nav a[aria-current="page"]:hover {
-  background-color: var(--color-primary-dark);
-  color: #fff;
+  background: none;
+  color: var(--color-primary-dark);
 }
 
 /* ===== Dropdown Nav ===== */
@@ -230,7 +240,8 @@ a:focus-visible {
 }
 
 .nav-group-label:hover {
-  color: var(--color-primary);
+  font-weight: 700;
+  color: #000;
 }
 
 .nav-group-label .arrow {
@@ -271,26 +282,45 @@ a:focus-visible {
 }
 
 .nav-dropdown a:hover {
-  color: var(--color-primary);
+  font-weight: 700;
+  color: #000;
 }
 
 /* ===== Hero ===== */
 .hero {
-  padding: var(--space-3xl) 0;
+  padding: 0;
+  text-align: center;
+  position: relative;
+}
+
+.hero-banner {
+  width: 100%;
+  display: block;
+  max-height: 340px;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.45);
+  padding: var(--space-xl) var(--space-lg);
   text-align: center;
 }
 
 .hero h1 {
   font-size: 1.75rem;
-  margin-bottom: var(--space-md);
-  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+  color: #fff;
 }
 
 .hero .subtitle {
   font-size: 1.05rem;
-  color: var(--color-muted);
+  color: rgba(255,255,255,0.9);
   max-width: 600px;
-  margin: 0 auto var(--space-xl);
+  margin: 0 auto;
   line-height: 1.8;
 }
 
@@ -1089,7 +1119,6 @@ a:focus-visible {
 @media (min-width: 768px) {
   h1 { font-size: 2.5rem; }
   .hero h1 { font-size: 2.5rem; }
-  .hero { padding: var(--space-3xl) 0 var(--space-2xl); }
 
   .nav-toggle { display: none; }
 
@@ -1259,7 +1288,7 @@ a:focus-visible {
 /* About Section */
 .about-section {
   max-width: 680px;
-  margin: 0 auto;
+  margin: var(--space-2xl) auto 0;
   text-align: center;
   color: var(--color-muted);
   font-size: 0.95rem;
