@@ -201,7 +201,7 @@ a:focus-visible {
 }
 
 .main-nav a:hover {
-  font-weight: 700;
+  text-shadow: 0 0 0.65px currentColor, 0 0 0.65px currentColor;
   color: #000;
 }
 
@@ -209,6 +209,7 @@ a:focus-visible {
   background: none;
   color: var(--color-primary);
   font-weight: 700;
+  font-size: calc(1em + 1px);
   border-radius: 0;
 }
 
@@ -231,7 +232,7 @@ a:focus-visible {
   color: var(--color-text);
   min-height: 48px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 400;
   background: none;
   border: none;
   font-family: var(--font-body);
@@ -240,7 +241,7 @@ a:focus-visible {
 }
 
 .nav-group-label:hover {
-  font-weight: 700;
+  text-shadow: 0 0 0.65px currentColor, 0 0 0.65px currentColor;
   color: #000;
 }
 
@@ -282,7 +283,7 @@ a:focus-visible {
 }
 
 .nav-dropdown a:hover {
-  font-weight: 700;
+  text-shadow: 0 0 0.65px currentColor, 0 0 0.65px currentColor;
   color: #000;
 }
 
@@ -302,12 +303,14 @@ a:focus-visible {
 
 .hero-overlay {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,0.45);
-  padding: var(--space-xl) var(--space-lg);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.55);
+  padding: var(--space-xl) var(--space-2xl);
   text-align: center;
+  border-radius: var(--radius-lg);
+  max-width: 90%;
 }
 
 .hero h1 {
@@ -1285,10 +1288,25 @@ a:focus-visible {
   background: #555E6E;
 }
 
+/* ===== Preparation Card Colors ===== */
+.timeline-section--teal { background: #E8F5F6; }
+.timeline-section--amber { background: #FDF6E5; }
+.timeline-section--lavender { background: #EEEDF5; }
+.timeline-section--mint { background: #E6F4ED; }
+.timeline-section--peach { background: #FDF0EC; }
+.timeline-section--sky { background: #E8F0F8; }
+.timeline-section--sand { background: #F5F0E6; }
+.timeline-section--rose { background: #F5E8EC; }
+
+.timeline-section .card-subtitle {
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
 /* About Section */
 .about-section {
   max-width: 680px;
-  margin: var(--space-2xl) auto 0;
+  margin: var(--space-3xl) auto;
   text-align: center;
   color: var(--color-muted);
   font-size: 0.95rem;
