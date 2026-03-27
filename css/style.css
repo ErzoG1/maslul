@@ -1257,6 +1257,12 @@ a:focus-visible {
 
 .pillar-card h2 {
   font-size: 1.4rem;
+  margin-bottom: var(--space-xs);
+}
+
+.pillar-card .pillar-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text);
   margin-bottom: var(--space-sm);
 }
 
