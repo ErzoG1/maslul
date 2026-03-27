@@ -401,9 +401,9 @@ a:focus-visible {
 }
 
 .btn--contact:hover {
-  background-color: #5C7A5F;
+  background-color: #000;
   color: #fff;
-  border-color: #5C7A5F;
+  border-color: #000;
 }
 
 .btn--large {
