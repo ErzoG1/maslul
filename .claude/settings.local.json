@@ -14,7 +14,25 @@
       "Bash(sed -i 's|family=Frank+Ruhl+Libre:wght@400;700\\\\&family=Assistant:wght@400;500;600;700|family=Assistant:wght@300;400;700|g' \"$f\")",
       "Bash(done)",
       "Bash(python3 -c \":*)",
-      "Bash(node -e \":*)"
+      "Bash(node -e \":*)",
+      "Bash(pip install:*)",
+      "Bash(python3 -m pip install \"markitdown[pptx]\")",
+      "Bash(python3 -m markitdown \"C:/Users/me/Desktop/מסלול.pptx\")",
+      "Bash(python -m markitdown \"C:/Users/me/Desktop/מסלול.pptx\")",
+      "Bash(\"/c/Users/me/AppData/Local/Programs/Python/Python312/python.exe\" --version)",
+      "Bash(\"/c/Users/me/AppData/Local/Programs/Python/Python311/python.exe\" --version)",
+      "Bash(py --version)",
+      "Bash(where python:*)",
+      "Bash(cmd.exe /c \"python -m pip install python-pptx 2>&1\")",
+      "Bash(cmd.exe /c \"pip install python-pptx && python -c \"\"from pptx import Presentation; prs = Presentation\\(r''C:\\\\Users\\\\me\\\\Desktop\\\\מסלול.pptx''\\); [print\\(f''=== Slide {i+1} ===''\\) or [print\\(p.text\\) for shape in slide.shapes if shape.has_text_frame for p in shape.text_frame.paragraphs] or print\\(\\) for i, slide in enumerate\\(prs.slides\\)]\"\"\")",
+      "Bash(cmd.exe /c \"pip install python-pptx\")",
+      "Bash(cmd.exe /c \"python -c \"\"print\\(''hello''\\)\"\"\")",
+      "Bash(powershell.exe -Command \"python -c ''print\\(42\\)''\")",
+      "Bash(powershell.exe -Command \"pip install python-pptx; python -c ''from pptx import Presentation; print\\(\"\"ok\"\"\\)''\")",
+      "Bash(cd /tmp)",
+      "Bash(npm install:*)",
+      "Bash(do sed:*)",
+      "Bash(grep -c 'G-9X5LZYEQ0G' *.html)"
     ]
   }
 }

@@ -292,13 +292,21 @@ a:focus-visible {
   padding: 0;
   text-align: center;
   position: relative;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
 }
 
 .hero-banner {
-  width: 100%;
-  display: block;
-  max-height: 340px;
-  object-fit: cover;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    background-attachment: fixed;
+  }
 }
 
 .hero-overlay {
@@ -967,7 +975,7 @@ a:focus-visible {
 }
 
 .footer-meta {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: #888;
   margin-bottom: var(--space-sm);
 }
@@ -982,7 +990,7 @@ a:focus-visible {
 
 .footer-credit {
   margin-top: var(--space-md);
-  font-size: 10px;
+  font-size: 11px;
   color: #777;
   direction: ltr;
   text-align: center;
