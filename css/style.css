@@ -688,12 +688,7 @@ a:focus-visible {
   align-items: flex-start;
   gap: var(--space-md);
   padding: var(--space-md) 0;
-  border-bottom: 1px solid var(--color-border);
   min-height: 48px;
-}
-
-.checklist-item:last-child {
-  border-bottom: none;
 }
 
 .checklist-item input[type="checkbox"] {
