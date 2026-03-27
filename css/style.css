@@ -953,7 +953,7 @@ a:focus-visible {
 
 /* ===== Page Footer ===== */
 .site-footer {
-  margin-top: var(--space-3xl);
+  margin-top: 100px;
   padding: var(--space-2xl) 0 var(--space-xl);
   background: #1a1a1a;
   color: #ccc;
