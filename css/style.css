@@ -595,12 +595,11 @@ a:focus-visible {
   padding: var(--space-xl);
   background: var(--color-card-bg);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
+  border: none;
 }
 
 .timeline-section--urgent {
-  border-color: var(--color-accent);
-  border-width: 2px;
+  border: none;
 }
 
 .timeline-section h2 {
@@ -719,17 +718,17 @@ a:focus-visible {
 
 .callout--info {
   background: #eef6f7;
-  border-right: 4px solid var(--color-primary);
+  border: none;
 }
 
 .callout--warning {
   background: #fdf6e5;
-  border-right: 4px solid var(--color-accent);
+  border: none;
 }
 
 .callout--alert {
   background: var(--color-alert-light);
-  border-right: 4px solid var(--color-alert);
+  border: none;
 }
 
 .callout p:last-child {
@@ -836,7 +835,7 @@ a:focus-visible {
   padding: var(--space-lg);
   background: var(--color-card-bg);
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
+  border: none;
 }
 
 .phone-card .phone-icon {
@@ -881,7 +880,7 @@ a:focus-visible {
   padding: var(--space-lg);
   background: var(--color-card-bg);
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
+  border: none;
 }
 
 .source-card h3 {
@@ -1056,7 +1055,7 @@ a:focus-visible {
   padding: var(--space-xl);
   background: var(--color-card-bg);
   border-radius: var(--radius-lg);
-  border: 2px solid var(--color-border);
+  border: none;
 }
 
 .info-card h3 {
@@ -1082,7 +1081,7 @@ a:focus-visible {
 }
 
 .info-card--green {
-  border-color: var(--color-primary);
+  border: none;
 }
 
 .info-card--green h3 {
@@ -1090,7 +1089,7 @@ a:focus-visible {
 }
 
 .info-card--red {
-  border-color: var(--color-alert);
+  border: none;
 }
 
 .info-card--red h3 {
@@ -1098,7 +1097,7 @@ a:focus-visible {
 }
 
 .info-card--default {
-  border-color: var(--color-border);
+  border: none;
 }
 
 @media (min-width: 768px) {
