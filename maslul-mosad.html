@@ -53,20 +53,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Callout variants for this page */
-    .callout--urgent {
-      background: #fdf0ec;
-      border-right: 4px solid var(--color-alert);
-    }
-    .callout--amber {
-      background: var(--color-accent-light);
-      border-right: 4px solid var(--color-accent);
-    }
-    .callout--green {
-      background: #e8f0e8;
-      border-right: 4px solid var(--color-primary);
-    }
-
     /* Comparison mini table */
     .comparison-mini { margin: var(--space-lg) 0; }
     .comparison-mini table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
@@ -273,9 +259,6 @@
 
           <!-- Location B: בבית -->
           <div class="location-content" data-location="B" style="display:none;">
-            <div class="callout callout--amber">
-              <strong>פטירה בבית - נוהל אחר מפטירה במוסד</strong>
-            </div>
             <ol class="numbered-steps">
               <li class="numbered-step">
                 <span class="step-number" aria-hidden="true">1</span>
@@ -304,7 +287,7 @@
                 <div class="step-content">
                   <h3>הוצא רישיון קבורה</h3>
                   <p class="step-note">מלשכת הבריאות המחוזית לפי כתובת הנפטר/ת.</p>
-                  <a href="https://www.gov.il/he/departments/ministry_of_health" target="_blank" rel="noopener" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">משרד הבריאות - gov.il ←</a>
+                  <a href="https://www.gov.il/he/service/death-notification-and-burial-permit" target="_blank" rel="noopener" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">משרד הבריאות ←</a>
                 </div>
               </li>
               <li class="numbered-step">
@@ -322,9 +305,6 @@
 
           <!-- Location C: מוות לא צפוי -->
           <div class="location-content" data-location="C" style="display:none;">
-            <div class="callout callout--urgent">
-              <strong>לוחות הזמנים שונים - הגופה אינה זמינה מיד</strong>
-            </div>
             <ol class="numbered-steps">
               <li class="numbered-step">
                 <span class="step-number" aria-hidden="true">1</span>
@@ -362,9 +342,7 @@
                 </div>
               </li>
             </ol>
-            <div class="callout callout--green" style="margin-top: var(--space-lg);">
-              <strong>מכון לרפואה משפטית:</strong> <span class="phone-inline">03-6074200</span>
-            </div>
+            <p style="margin-top: var(--space-lg);"><strong>מכון לרפואה משפטית:</strong> <span class="phone-inline">03-6074200</span></p>
           </div>
 
           <!-- Location D: בחו"ל -->
@@ -406,9 +384,6 @@
                 </div>
               </li>
             </ol>
-            <div class="callout callout--amber" style="margin-top: var(--space-lg);">
-              <strong>ביטוח נסיעות:</strong> אם הנפטר/ת היה/תה מבוטח/ת בביטוח נסיעות - פנו לחברת הביטוח מיד.
-            </div>
           </div>
 
         </section>
@@ -437,10 +412,6 @@
               <label for="c-tahara">תיאום טהרה ותכריכים - החברה קדישא דואגת</label>
             </li>
           </ul>
-          <div class="callout callout--green" style="margin-top: var(--space-lg);">
-            <strong>תקופת אנינות</strong>
-            <p>האבלים פטורים מכל מצווה עד לאחר הקבורה. אין צורך לטפל בבירוקרטיה עכשיו.</p>
-          </div>
         </section>
       </div>
 
@@ -500,10 +471,6 @@
             <li style="padding: var(--space-sm) 0;">📌 ההלוויה והקבורה התקיימו</li>
             <li style="padding: var(--space-sm) 0;">📌 שבעה - 7 ימי אבל מסורתיים</li>
           </ul>
-          <div class="callout callout--green" style="margin-top: var(--space-lg);">
-            <strong>לא חייבים לטפל בבירוקרטיה בשבוע הראשון.</strong>
-            <p>הכל יכול לחכות.</p>
-          </div>
         </section>
       </div>
 
@@ -526,13 +493,13 @@
                 <tr>
                   <td>תעודת פטירה רשמית</td>
                   <td>משרד הפנים</td>
-                  <td><a href="https://www.gov.il/he/service/request-death-certificate" target="_blank" rel="noopener">gov.il</a></td>
+                  <td><a href="https://www.gov.il/he/service/death_certificate" target="_blank" rel="noopener">gov.il</a></td>
                   <td>~2 שבועות</td>
                 </tr>
                 <tr>
                   <td>תביעת קצבת שאירים</td>
                   <td>ביטוח לאומי</td>
-                  <td><a href="https://www.btl.gov.il/benefits/Survivors/Pages/default.aspx" target="_blank" rel="noopener">btl.gov.il</a></td>
+                  <td><a href="https://www.btl.gov.il/benefits/Survivors_%20Insurance/Pages/%D7%90%D7%95%D7%A4%D7%9F%20%D7%94%D7%92%D7%A9%D7%AA%20%D7%94%D7%AA%D7%91%D7%99%D7%A2%D7%94.aspx" target="_blank" rel="noopener">btl.gov.il</a></td>
                   <td>עד 12 חודש רטרואקטיבי</td>
                 </tr>
                 <tr>
@@ -564,6 +531,7 @@
         <hr class="section-divider">
         <section class="timeline-section">
           <h2>זכויות ביטוח לאומי</h2>
+          <p><strong>⚠️ נא לבדוק את המחירים. האתר אינו אחראית לסכומים המוצגים</strong></p>
           <div class="table-wrapper">
             <table class="data-table">
               <thead>
@@ -602,11 +570,7 @@
               </tbody>
             </table>
           </div>
-          <div class="callout callout--amber" style="margin-top: var(--space-lg);">
-            <strong>⚠️ מועד אחרון: 12 חודש מהפטירה.</strong>
-            <p>לאחר מכן - רק מתאריך הגשת הבקשה.</p>
-          </div>
-          <p class="text-muted mt-md" style="font-size:0.85rem;">מקור: <a href="https://www.btl.gov.il/benefits/Survivors/Pages/default.aspx" target="_blank" rel="noopener">btl.gov.il/benefits/Survivors</a></p>
+          <p class="text-muted mt-md" style="font-size:0.85rem;">מקור: <a href="https://www.btl.gov.il/benefits/Survivors_%20Insurance/Pages/%D7%9E%D7%A2%D7%A0%D7%A7%20%D7%A4%D7%98%D7%99%D7%A8%D7%94.aspx" target="_blank" rel="noopener">btl.gov.il/benefits/Survivors</a></p>
         </section>
       </div>
 
