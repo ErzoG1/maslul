@@ -64,27 +64,27 @@
   let selectedBurial = null;
 
   // Route map: situation + burial → page
-  // All situations route to the main guide (maslul-mosad.html) which covers the full process.
+  // All situations route to the main guide (maslul-ptira.html) which covers the full process.
   // 'help' always routes to the comparison page.
   const routes = {
     'mosad': {
-      'datit': 'maslul-mosad.html',
-      'ezrachit': 'maslul-mosad.html',
+      'datit': 'maslul-ptira.html',
+      'ezrachit': 'maslul-ptira.html',
       'help': 'hashvaah.html'
     },
     'bayit': {
-      'datit': 'maslul-mosad.html',
-      'ezrachit': 'maslul-mosad.html',
+      'datit': 'maslul-ptira.html',
+      'ezrachit': 'maslul-ptira.html',
       'help': 'hashvaah.html'
     },
     'lo-tzapuy': {
-      'datit': 'maslul-mosad.html',
-      'ezrachit': 'maslul-mosad.html',
+      'datit': 'maslul-ptira.html',
+      'ezrachit': 'maslul-ptira.html',
       'help': 'hashvaah.html'
     },
     'chutz': {
-      'datit': 'maslul-mosad.html',
-      'ezrachit': 'maslul-mosad.html',
+      'datit': 'maslul-ptira.html',
+      'ezrachit': 'maslul-ptira.html',
       'help': 'hashvaah.html'
     },
     'hemshech': {
@@ -115,7 +115,7 @@
           return;
         }
         if (selectedSituation && routes[selectedSituation]) {
-          var page = routes[selectedSituation][selectedBurial] || 'maslul-mosad.html';
+          var page = routes[selectedSituation][selectedBurial] || 'maslul-ptira.html';
           window.location.href = page;
         }
       });
