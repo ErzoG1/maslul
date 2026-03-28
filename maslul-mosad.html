@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>פטירה במוסד רפואי - קבורה דתית | מסלול</title>
-  <meta name="description" content="מדריך צעד-אחר-צעד לאחר פטירה בבית חולים או מוסד רפואי בישראל - קבורה דתית">
+  <title>המדריך המלא - מה לעשות לאחר פטירה | מסלול</title>
+  <meta name="description" content="מדריך אינטראקטיבי צעד-אחר-צעד לאחר פטירה בישראל - מותאם למיקום הפטירה וסוג הקבורה">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
@@ -17,6 +17,101 @@
     gtag('js', new Date());
     gtag('config', 'G-9X5LZYEQ0G');
   </script>
+  <style>
+    /* Filter cards */
+    .filter-section { margin-bottom: var(--space-xl); }
+    .filter-question { margin-bottom: var(--space-lg); }
+    .filter-question h3 { margin-bottom: var(--space-md); font-size: 1.1rem; }
+    .filter-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-md); }
+    .filter-card {
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: var(--color-card-bg);
+    }
+    .filter-card:hover { border-color: var(--color-primary-light); background: #f0f9fa; }
+    .filter-card.selected {
+      border-color: var(--color-primary);
+      background: #e8f4f5;
+      box-shadow: 0 0 0 1px var(--color-primary);
+    }
+    .filter-card .filter-icon { font-size: 1.8rem; margin-bottom: var(--space-sm); }
+    .filter-card .filter-label { font-weight: 700; font-size: 0.95rem; margin-bottom: var(--space-xs); }
+    .filter-card .filter-desc { font-size: 0.8rem; color: var(--color-muted); }
+
+    /* Dynamic content */
+    .dynamic-content { display: none; }
+    .dynamic-content.visible {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Callout variants for this page */
+    .callout--urgent {
+      background: #fdf0ec;
+      border-right: 4px solid var(--color-alert);
+    }
+    .callout--amber {
+      background: var(--color-accent-light);
+      border-right: 4px solid var(--color-accent);
+    }
+    .callout--green {
+      background: #e8f0e8;
+      border-right: 4px solid var(--color-primary);
+    }
+
+    /* Comparison mini table */
+    .comparison-mini { margin: var(--space-lg) 0; }
+    .comparison-mini table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .comparison-mini th, .comparison-mini td {
+      padding: var(--space-sm) var(--space-md);
+      border: 1px solid var(--color-border);
+      text-align: right;
+    }
+    .comparison-mini th { background: #f5f7f7; font-weight: 700; }
+
+    /* Phone display */
+    .phone-inline {
+      display: inline-block;
+      direction: ltr;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+    }
+
+    /* Section divider */
+    .section-divider {
+      margin: var(--space-2xl) 0;
+      border: none;
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* Bottom buttons area */
+    .bottom-buttons {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-xl);
+      border-top: 1px solid var(--color-border);
+    }
+
+    @media (max-width: 767px) {
+      .filter-cards { grid-template-columns: 1fr 1fr; }
+      .filter-card { padding: var(--space-md); }
+      .filter-card .filter-icon { font-size: 1.4rem; }
+    }
+    @media (max-width: 479px) {
+      .filter-cards { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -72,239 +167,525 @@
       <nav class="breadcrumb" aria-label="מיקום באתר">
         <a href="index.html">בית</a>
         <span>‹</span>
-        פטירה במוסד רפואי
-        <span>‹</span>
-        קבורה דתית
+        המדריך המלא
       </nav>
 
-      <h1>פטירה במוסד רפואי - המדריך המלא</h1>
+      <h1>המדריך המלא - מה לעשות לאחר פטירה</h1>
+      <p style="margin-bottom: var(--space-xl); color: var(--color-muted);">בחרו את המצב הרלוונטי, והמדריך יתאים את עצמו עבורכם.</p>
 
-      <!-- Progress Bar -->
-      <nav class="progress-bar" aria-label="שלבי התהליך">
-        <a href="#section-now" class="progress-step is-active">שעות ראשונות</a>
-        <a href="#section-24h" class="progress-step">תוך 24 שעות</a>
-        <a href="#section-week" class="progress-step">שבוע</a>
-        <a href="#section-month" class="progress-step">חודש</a>
-        <a href="#section-year" class="progress-step">שנה</a>
-      </nav>
+      <!-- ========== PART 1: FILTER QUESTIONS ========== -->
+      <div class="filter-section">
 
-      <!-- Section A: Now -->
-      <section class="timeline-section timeline-section--urgent" id="section-now">
-        <h2>
-          <span class="section-badge">דחוף</span>
-          עכשיו - השעות הראשונות
-        </h2>
-
-        <ol class="numbered-steps">
-          <li class="numbered-step">
-            <span class="step-number" aria-hidden="true">1</span>
-            <div class="step-content">
-              <h3>קבל הודעת פטירה רשמית מהמוסד</h3>
-              <p class="step-note">בקש 3 עותקים חתומים של הודעת הפטירה. המסמך נדרש לכל ההמשך הבירוקרטי.</p>
+        <!-- Question 1: Location -->
+        <div class="filter-question">
+          <h3>איפה התרחשה הפטירה?</h3>
+          <div class="filter-cards" id="filter-location">
+            <div class="filter-card" data-value="A" tabindex="0" role="button" aria-pressed="false">
+              <div class="filter-icon">🏥</div>
+              <div class="filter-label">במוסד רפואי</div>
+              <div class="filter-desc">בית חולים / בית אבות / מרפאה</div>
             </div>
-          </li>
-          <li class="numbered-step">
-            <span class="step-number" aria-hidden="true">2</span>
-            <div class="step-content">
-              <h3>קבל רישיון קבורה</h3>
-              <p class="step-note">נדרש לפני כל הובלה של הגופה. ניתן לקבל במדור קבלה / אח"מ של המוסד הרפואי.</p>
+            <div class="filter-card" data-value="B" tabindex="0" role="button" aria-pressed="false">
+              <div class="filter-icon">🏠</div>
+              <div class="filter-label">בבית</div>
+              <div class="filter-desc">פטירה בבית המגורים</div>
             </div>
-          </li>
-          <li class="numbered-step">
-            <span class="step-number" aria-hidden="true">3</span>
-            <div class="step-content">
-              <h3>התקשר לחברה קדישא</h3>
-              <div class="phone-display" aria-label="מספר טלפון חברה קדישא">
-                ✆ *0120
-              </div>
-              <p class="step-note">קו פעיל 24/7. החברה קדישא מתאמת הכל - הובלה, טהרה, תכריכים, קבורה.</p>
+            <div class="filter-card" data-value="C" tabindex="0" role="button" aria-pressed="false">
+              <div class="filter-icon">⚠️</div>
+              <div class="filter-label">מוות לא צפוי</div>
+              <div class="filter-desc">תאונה / אירוע פתאומי / נסיבות לא ברורות</div>
             </div>
-          </li>
-          <li class="numbered-step">
-            <span class="step-number" aria-hidden="true">4</span>
-            <div class="step-content">
-              <h3>הגופה נשמרת בקירור במוסד</h3>
-              <p class="step-note">ללא עלות עד ההלוויה. אין צורך לדאוג להעברה מיידית - המוסד שומר עד שהחברה קדישא מגיעה.</p>
+            <div class="filter-card" data-value="D" tabindex="0" role="button" aria-pressed="false">
+              <div class="filter-icon">✈️</div>
+              <div class="filter-label">בחו"ל</div>
+              <div class="filter-desc">פטירה מחוץ לישראל</div>
             </div>
-          </li>
-        </ol>
-      </section>
-
-      <!-- Section B: Within 24 Hours -->
-      <section class="timeline-section" id="section-24h">
-        <h2>תוך 24 שעות</h2>
-
-        <ul class="checklist">
-          <li class="checklist-item">
-            <input type="checkbox" id="c-date" aria-label="תיאום תאריך ושעת הלוויה">
-            <label for="c-date">תיאום תאריך ושעת הלוויה עם חברה קדישא</label>
-          </li>
-          <li class="checklist-item">
-            <input type="checkbox" id="c-family" aria-label="הודעה לבני משפחה">
-            <label for="c-family">הודעה לבני משפחה קרובים</label>
-          </li>
-          <li class="checklist-item">
-            <input type="checkbox" id="c-cemetery" aria-label="בחירת בית עלמין">
-            <label for="c-cemetery">בחירת בית עלמין (אם יש אפשרות בחירה)</label>
-          </li>
-          <li class="checklist-item">
-            <input type="checkbox" id="c-tahara" aria-label="תיאום טהרה ותכריכים">
-            <label for="c-tahara">תיאום טהרה ותכריכים (החברה קדישא דואגת)</label>
-          </li>
-        </ul>
-
-        <div class="callout callout--warning">
-          <strong>תקופת אנינות</strong>
-          <p>האבלים פטורים מכל מצווה עד לאחר הקבורה. אין צורך להתפלל, לברך או לקיים מצוות אחרות בתקופה זו.</p>
+          </div>
         </div>
-      </section>
 
-      <!-- Section C: Within a Week -->
-      <section class="timeline-section" id="section-week">
-        <h2>תוך שבוע (תקופת השבעה)</h2>
-
-        <ul class="checklist">
-          <li class="checklist-item">
-            <input type="checkbox" id="c-funeral" aria-label="ההלוויה והקבורה התקיימו">
-            <label for="c-funeral">ההלוויה והקבורה התקיימו</label>
-          </li>
-          <li class="checklist-item">
-            <input type="checkbox" id="c-shiva" aria-label="שבעה מתחילה">
-            <label for="c-shiva">שבעה מתחילה - 7 ימי אבל</label>
-          </li>
-        </ul>
-
-        <div class="callout callout--info">
-          <strong>אין לחץ</strong>
-          <p>לא חייבים לטפל עכשיו בבירוקרטיה. המסמכים יכולים לחכות. תנו לעצמכם את הזמן הזה.</p>
+        <!-- Question 2: Burial type -->
+        <div class="filter-question">
+          <h3>איזה סוג קבורה?</h3>
+          <div class="filter-cards" id="filter-burial">
+            <div class="filter-card" data-value="X" tabindex="0" role="button" aria-pressed="false">
+              <div class="filter-icon">✡️</div>
+              <div class="filter-label">קבורה דתית</div>
+              <div class="filter-desc">חברה קדישא</div>
+            </div>
+            <div class="filter-card" data-value="Y" tabindex="0" role="button" aria-pressed="false">
+              <div class="filter-icon">🌿</div>
+              <div class="filter-label">קבורה אזרחית</div>
+              <div class="filter-desc">טקס חילוני</div>
+            </div>
+            <div class="filter-card" data-value="Z" tabindex="0" role="button" aria-pressed="false">
+              <div class="filter-icon">❓</div>
+              <div class="filter-label">עדיין לא יודע</div>
+              <div class="filter-desc">הסבר לי את ההבדלים</div>
+            </div>
+          </div>
         </div>
-      </section>
 
-      <!-- Section D: Within 30 Days -->
-      <section class="timeline-section" id="section-month">
-        <h2>תוך 30 יום</h2>
+      </div>
 
-        <ol class="numbered-steps">
-          <li class="numbered-step">
-            <span class="step-number" aria-hidden="true">1</span>
-            <div class="step-content">
-              <h3>תעודת פטירה רשמית</h3>
-              <p class="step-note">מסמך רשמי שמוכיח את הפטירה. נדרש לכל פעולה בירוקרטית - בנקים, ביטוח לאומי, טאבו ועוד. ניתן להזמין אונליין באתר משרד הפנים. זמן עיבוד: כ-2 שבועות.</p>
-              <a href="https://www.gov.il/he/service/request-death-certificate" target="_blank" rel="noopener" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">הזמן תעודת פטירה - gov.il</a>
-            </div>
-          </li>
-          <li class="numbered-step">
-            <span class="step-number" aria-hidden="true">2</span>
-            <div class="step-content">
-              <h3>תביעת קצבת שאירים</h3>
-              <p class="step-note">קצבה חודשית מביטוח לאומי לבן/בת הזוג ולילדים עד גיל 18 (או 20 אם בשירות צבאי). הקצבה משולמת רטרואקטיבית עד 12 חודש אחורה - כדאי להגיש מוקדם.</p>
-              <a href="https://www.btl.gov.il/benefits/Survivors/Pages/default.aspx" target="_blank" rel="noopener" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">הגש תביעה - ביטוח לאומי</a>
-            </div>
-          </li>
-          <li class="numbered-step">
-            <span class="step-number" aria-hidden="true">3</span>
-            <div class="step-content">
-              <h3>הר הביטוח - חיפוש פוליסות</h3>
-              <p class="step-note">שירות חינמי של רשות שוק ההון שמראה את כל פוליסות הביטוח של הנפטר/ת - ביטוח חיים, בריאות, פנסיה, חיסכון. חשוב לבדוק כדי לא לפספס כספים שמגיעים למשפחה.</p>
-              <a href="https://harb.cma.gov.il" target="_blank" rel="noopener" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">חפש פוליסות - harb.cma.gov.il</a>
-            </div>
-          </li>
-          <li class="numbered-step">
-            <span class="step-number" aria-hidden="true">4</span>
-            <div class="step-content">
-              <h3>הודעה לבנקים</h3>
-              <p class="step-note">הבנק בדרך כלל מקבל הודעה אוטומטית ממרשם האוכלוסין, אך כדאי לפנות בנפרד. אם יש חשבון משותף עם סעיף ״אריכות ימים״ - בן/בת הזוג יכול/ה להמשיך בפעילות שוטפת. ללא הסעיף - החשבון מוקפא.</p>
-              <a href="banks.html" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">מדריך בנקים מפורט →</a>
-            </div>
-          </li>
-          <li class="numbered-step">
-            <span class="step-number" aria-hidden="true">5</span>
-            <div class="step-content">
-              <h3>ביטול מנויי תקשורת</h3>
-              <p class="step-note">ביטול מנויי סלולר, אינטרנט, טלוויזיה וטלפון קווי. לפי חוק, חברות תקשורת חייבות לבטל תוך 3 ימי עסקים. יש לשלוח תעודת פטירה + ת"ז שלך.</p>
-              <a href="telecom.html" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">מדריך ביטול תקשורת →</a>
-            </div>
-          </li>
-          <li class="numbered-step">
-            <span class="step-number" aria-hidden="true">6</span>
-            <div class="step-content">
-              <h3>ביטול שירותים: חשמל, מים, ארנונה</h3>
-              <p class="step-note">יש לפנות לכל ספק בנפרד עם תעודת פטירה. אפשר לטפל גם אחרי השלושים - אין קנס על עיכוב. אם הדירה נשארת מאוכלסת, אפשר להעביר את החשבון על שם בן/בת הזוג.</p>
-            </div>
-          </li>
-          <li class="numbered-step">
-            <span class="step-number" aria-hidden="true">7</span>
-            <div class="step-content">
-              <h3>הסדרת רכב</h3>
-              <p class="step-note">אם לנפטר/ת היה רכב - צריך להעביר בעלות במשרד הרישוי. לבן/בת זוג התהליך פשוט (תצהיר עו"ד בלבד). ליורש אחר נדרש צו ירושה. ניתן לקבל רישיון זמני לשנה בינתיים.</p>
-              <a href="vehicle.html" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">מדריך העברת רכב →</a>
-            </div>
-          </li>
-          <li class="numbered-step">
-            <span class="step-number" aria-hidden="true">8</span>
-            <div class="step-content">
-              <h3>נדל"ן / דירה - רישום בטאבו</h3>
-              <p class="step-note">העברת דירה על שם היורשים בלשכת רישום מקרקעין (טאבו). ההעברה עצמה פטורה ממס, אך מכירה עתידית עלולה לחייב במס שבח. אגרה: ₪183. מחייב צו ירושה.</p>
-              <a href="realestate.html" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">מדריך נדל"ן בירושה →</a>
-            </div>
-          </li>
-        </ol>
-      </section>
+      <!-- ========== PART 2: DYNAMIC CONTENT ========== -->
 
-      <!-- Section E: Within a Year -->
-      <section class="timeline-section" id="section-year">
-        <h2>תוך שנה - עיזבון וירושה</h2>
+      <!-- SECTION: שעות ראשונות -->
+      <div class="dynamic-content" id="section-now">
+        <section class="timeline-section timeline-section--urgent">
+          <h2><span class="section-badge">דחוף</span> שעות ראשונות - דחוף עכשיו</h2>
 
-        <div class="table-wrapper">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th scope="col">מה לעשות</th>
-                <th scope="col">היכן</th>
-                <th scope="col">קישור</th>
-                <th scope="col">הערה</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>צו ירושה / צו קיום צוואה</td>
-                <td>רשם הירושות</td>
-                <td><a href="https://www.gov.il/he/service/request-for-inheritance-order" target="_blank" rel="noopener">gov.il</a></td>
-                <td>ניתן להגיש באונליין</td>
-              </tr>
-              <tr>
-                <td>העברת מקרקעין (טאבו)</td>
-                <td>רשות מקרקעי ישראל / טאבו</td>
-                <td><a href="https://www.gov.il/he/departments/tabu" target="_blank" rel="noopener">gov.il</a></td>
-                <td>דורש צו ירושה</td>
-              </tr>
-              <tr>
-                <td>מימוש ביטוח חיים</td>
-                <td>חברת הביטוח הרלוונטית</td>
-                <td><a href="https://harb.cma.gov.il" target="_blank" rel="noopener">harb.cma.gov.il</a></td>
-                <td>בדוק בהר הביטוח</td>
-              </tr>
-              <tr>
-                <td>הקמת מצבה</td>
-                <td>חברה קדישא / ספק פרטי</td>
-                <td>-</td>
-                <td>בד"כ לאחר 11 חודש</td>
-              </tr>
-              <tr>
-                <td>סגירת תיק מס הכנסה</td>
-                <td>מס הכנסה</td>
-                <td><a href="https://www.gov.il/he/departments/israel_tax_authority" target="_blank" rel="noopener">gov.il</a></td>
-                <td>הגשת דו"ח סופי לשנת הפטירה</td>
-              </tr>
-            </tbody>
-          </table>
+          <!-- Location A: מוסד רפואי -->
+          <div class="location-content" data-location="A">
+            <ol class="numbered-steps">
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">1</span>
+                <div class="step-content">
+                  <h3>קבל הודעת פטירה רשמית מהמוסד</h3>
+                  <p class="step-note">בקש 3 עותקים חתומים של הודעת הפטירה. המסמך נדרש לכל ההמשך הבירוקרטי.</p>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">2</span>
+                <div class="step-content">
+                  <h3>קבל רישיון קבורה</h3>
+                  <p class="step-note">ממדור קבלה / אח"מ של המוסד הרפואי. נדרש לפני כל הובלה של הגופה.</p>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">3</span>
+                <div class="step-content">
+                  <h3 class="burial-x-text">התקשר לחברה קדישא</h3>
+                  <h3 class="burial-y-text" style="display:none;">צור קשר עם חברת קבורה אזרחית</h3>
+                  <div class="phone-display burial-x-text" aria-label="מספר טלפון חברה קדישא">✆ *0120</div>
+                  <p class="step-note burial-x-text">קו פעיל 24/7. החברה קדישא מתאמת הכל - הובלה, טהרה, תכריכים, קבורה.</p>
+                  <p class="step-note burial-y-text" style="display:none;">פנו לחברת קבורה אזרחית לתיאום ההלוויה והקבורה.</p>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">4</span>
+                <div class="step-content">
+                  <h3>הגופה נשמרת בקירור במוסד</h3>
+                  <p class="step-note">ללא עלות עד ההלוויה. אין צורך לדאוג להעברה מיידית.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Location B: בבית -->
+          <div class="location-content" data-location="B" style="display:none;">
+            <div class="callout callout--amber">
+              <strong>פטירה בבית - נוהל אחר מפטירה במוסד</strong>
+            </div>
+            <ol class="numbered-steps">
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">1</span>
+                <div class="step-content">
+                  <h3>התקשר למד"א</h3>
+                  <div class="phone-display" aria-label="מספר טלפון מד״א">✆ 101</div>
+                  <p class="step-note">רופא/חובש יגיע להכריז על המוות באופן רשמי.</p>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">2</span>
+                <div class="step-content">
+                  <h3>המשטרה תגיע</h3>
+                  <p class="step-note">זה חוקי ונורמלי. הם יבדקו שאין חשד לפשע. אין צורך לדאוג.</p>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">3</span>
+                <div class="step-content">
+                  <h3>קבל הודעת פטירה</h3>
+                  <p class="step-note">מד"א מוציא 3 עותקים של הודעת פטירה.</p>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">4</span>
+                <div class="step-content">
+                  <h3>הוצא רישיון קבורה</h3>
+                  <p class="step-note">מלשכת הבריאות המחוזית לפי כתובת הנפטר/ת.</p>
+                  <a href="https://www.gov.il/he/departments/ministry_of_health" target="_blank" rel="noopener" class="btn btn--secondary mt-sm" style="font-size:0.85rem; padding:0.4rem 1rem; min-height:36px;">משרד הבריאות - gov.il ←</a>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">5</span>
+                <div class="step-content">
+                  <h3 class="burial-x-text">התקשר לחברה קדישא</h3>
+                  <h3 class="burial-y-text" style="display:none;">צור קשר עם חברת קבורה אזרחית</h3>
+                  <div class="phone-display burial-x-text" aria-label="מספר טלפון חברה קדישא">✆ *0120</div>
+                  <p class="step-note burial-x-text">קו פעיל 24/7.</p>
+                  <p class="step-note burial-y-text" style="display:none;">פנו לחברת קבורה אזרחית לתיאום ההלוויה והקבורה.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Location C: מוות לא צפוי -->
+          <div class="location-content" data-location="C" style="display:none;">
+            <div class="callout callout--urgent">
+              <strong>לוחות הזמנים שונים - הגופה אינה זמינה מיד</strong>
+            </div>
+            <ol class="numbered-steps">
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">1</span>
+                <div class="step-content">
+                  <h3>הגופה מועברת למכון לרפואה משפטית (אבו כביר)</h3>
+                  <p class="step-note">תהליך אוטומטי, לא ניתן לעצור אותו.</p>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">2</span>
+                <div class="step-content">
+                  <h3>המכון מבצע בדיקה</h3>
+                  <p class="step-note">בדרך כלל 24-72 שעות. משך הזמן תלוי בנסיבות.</p>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">3</span>
+                <div class="step-content">
+                  <h3>זכות להתנגד לנתיחה</h3>
+                  <p class="step-note">יש להצהיר בהקדם האפשרי אם רוצים להתנגד לנתיחה שלאחר המוות.</p>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">4</span>
+                <div class="step-content">
+                  <h3>אבו כביר מוציא רישיון קבורה</h3>
+                  <p class="step-note">לאחר סיום הבדיקה. רק אז ניתן לתאם הלוויה.</p>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">5</span>
+                <div class="step-content">
+                  <h3>הובלה מאבו כביר</h3>
+                  <p class="step-note">על חשבון המשטרה, תהליך אוטומטי.</p>
+                </div>
+              </li>
+            </ol>
+            <div class="callout callout--green" style="margin-top: var(--space-lg);">
+              <strong>מכון לרפואה משפטית:</strong> <span class="phone-inline">03-6074200</span>
+            </div>
+          </div>
+
+          <!-- Location D: בחו"ל -->
+          <div class="location-content" data-location="D" style="display:none;">
+            <ol class="numbered-steps">
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">1</span>
+                <div class="step-content">
+                  <h3>פנה לשגרירות ישראל במדינה הרלוונטית</h3>
+                  <p class="step-note">השגרירות מתאמת את הצעדים הראשוניים ומסייעת בתהליך.</p>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">2</span>
+                <div class="step-content">
+                  <h3>בחר: קבורה מקומית בחו"ל / החזרת הגופה לישראל</h3>
+                  <p class="step-note">החלטה שיש לקבל בהקדם. השגרירות יכולה לסייע בשני המסלולים.</p>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">3</span>
+                <div class="step-content">
+                  <h3>עלות החזרת גופה (repatriation)</h3>
+                  <p class="step-note">מינימום €5,000-$8,000. בדוק כיסוי ביטוחי מיד - ביטוח נסיעות עשוי לכסות.</p>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">4</span>
+                <div class="step-content">
+                  <h3>תושב ישראל שנפטר בחו"ל</h3>
+                  <p class="step-note">ביטוח לאומי מממן קבורה בעיר מגוריו בישראל.</p>
+                </div>
+              </li>
+              <li class="numbered-step">
+                <span class="step-number" aria-hidden="true">5</span>
+                <div class="step-content">
+                  <h3>מי שגר בחו"ל שנים</h3>
+                  <p class="step-note">ייתכן שאינו מכוסה. יש לבדוק מול ביטוח לאומי.</p>
+                </div>
+              </li>
+            </ol>
+            <div class="callout callout--amber" style="margin-top: var(--space-lg);">
+              <strong>ביטוח נסיעות:</strong> אם הנפטר/ת היה/תה מבוטח/ת בביטוח נסיעות - פנו לחברת הביטוח מיד.
+            </div>
+          </div>
+
+        </section>
+      </div>
+
+      <!-- SECTION: תוך 24 שעות -->
+      <div class="dynamic-content" id="section-24h">
+        <hr class="section-divider">
+        <section class="timeline-section">
+          <h2>תוך 24 שעות</h2>
+          <ul class="checklist">
+            <li class="checklist-item">
+              <input type="checkbox" id="c-date" aria-label="תיאום תאריך ושעת הלוויה">
+              <label for="c-date">תיאום תאריך ושעת הלוויה עם חברת הקבורה</label>
+            </li>
+            <li class="checklist-item">
+              <input type="checkbox" id="c-family" aria-label="הודעה לבני משפחה">
+              <label for="c-family">הודעה לבני משפחה קרובים</label>
+            </li>
+            <li class="checklist-item">
+              <input type="checkbox" id="c-cemetery" aria-label="בחירת בית עלמין">
+              <label for="c-cemetery">בחירת בית עלמין (אם יש אפשרות בחירה)</label>
+            </li>
+            <li class="checklist-item burial-x-only">
+              <input type="checkbox" id="c-tahara" aria-label="תיאום טהרה ותכריכים">
+              <label for="c-tahara">תיאום טהרה ותכריכים - החברה קדישא דואגת</label>
+            </li>
+          </ul>
+          <div class="callout callout--green" style="margin-top: var(--space-lg);">
+            <strong>תקופת אנינות</strong>
+            <p>האבלים פטורים מכל מצווה עד לאחר הקבורה. אין צורך לטפל בבירוקרטיה עכשיו.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- SECTION: סוג הקבורה - השוואה -->
+      <div class="dynamic-content" id="section-burial-compare">
+        <hr class="section-divider">
+        <section class="timeline-section">
+          <h2>סוג הקבורה - מה ההבדל?</h2>
+          <div class="comparison-mini">
+            <table>
+              <thead>
+                <tr>
+                  <th>נושא</th>
+                  <th>קבורה דתית</th>
+                  <th>קבורה אזרחית</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>מימון ביטוח לאומי</td>
+                  <td>כן - מלא</td>
+                  <td>חלקי בלבד</td>
+                </tr>
+                <tr>
+                  <td>ארון</td>
+                  <td>ללא ארון (תכריכים)</td>
+                  <td>בארון עץ</td>
+                </tr>
+                <tr>
+                  <td>טקס</td>
+                  <td>דתי - תפילות והספדים</td>
+                  <td>חילוני - לפי בחירת המשפחה</td>
+                </tr>
+                <tr>
+                  <td>מוזיקה</td>
+                  <td>לא</td>
+                  <td>כן</td>
+                </tr>
+                <tr>
+                  <td>זמינות</td>
+                  <td>בכל הארץ</td>
+                  <td>מוגבלת - מספר בתי עלמין</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <a href="hashvaah.html" class="btn btn--secondary">להשוואה המלאה ←</a>
+        </section>
+      </div>
+
+      <!-- SECTION: תוך שבוע -->
+      <div class="dynamic-content" id="section-week">
+        <hr class="section-divider">
+        <section class="timeline-section">
+          <h2>תוך שבוע (תקופת השבעה)</h2>
+          <ul style="list-style: none; padding: 0;">
+            <li style="padding: var(--space-sm) 0;">📌 ההלוויה והקבורה התקיימו</li>
+            <li style="padding: var(--space-sm) 0;">📌 שבעה - 7 ימי אבל מסורתיים</li>
+          </ul>
+          <div class="callout callout--green" style="margin-top: var(--space-lg);">
+            <strong>לא חייבים לטפל בבירוקרטיה בשבוע הראשון.</strong>
+            <p>הכל יכול לחכות.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- SECTION: תוך 30 יום -->
+      <div class="dynamic-content" id="section-month">
+        <hr class="section-divider">
+        <section class="timeline-section">
+          <h2>תוך 30 יום</h2>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">מה לעשות</th>
+                  <th scope="col">היכן</th>
+                  <th scope="col">קישור</th>
+                  <th scope="col">הערה</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>תעודת פטירה רשמית</td>
+                  <td>משרד הפנים</td>
+                  <td><a href="https://www.gov.il/he/service/request-death-certificate" target="_blank" rel="noopener">gov.il</a></td>
+                  <td>~2 שבועות</td>
+                </tr>
+                <tr>
+                  <td>תביעת קצבת שאירים</td>
+                  <td>ביטוח לאומי</td>
+                  <td><a href="https://www.btl.gov.il/benefits/Survivors/Pages/default.aspx" target="_blank" rel="noopener">btl.gov.il</a></td>
+                  <td>עד 12 חודש רטרואקטיבי</td>
+                </tr>
+                <tr>
+                  <td>הר הביטוח - חיפוש פוליסות</td>
+                  <td>רשות שוק ההון</td>
+                  <td><a href="https://harb.cma.gov.il" target="_blank" rel="noopener">harb.cma.gov.il</a></td>
+                  <td>כל ביטוחי הנפטר/ת</td>
+                </tr>
+                <tr>
+                  <td>הודעה לבנקים</td>
+                  <td>כל בנק בנפרד</td>
+                  <td><a href="banks.html">מדריך בנקים</a></td>
+                  <td>חשבון מוקפא ללא צו ירושה</td>
+                </tr>
+                <tr>
+                  <td>ביטול: חשמל, מים, טלפון, אינטרנט</td>
+                  <td>כל ספק</td>
+                  <td><a href="telecom.html">מדריך תקשורת</a></td>
+                  <td>אפשר גם אחרי שלושים</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <!-- SECTION: זכויות ביטוח לאומי -->
+      <div class="dynamic-content" id="section-btl">
+        <hr class="section-divider">
+        <section class="timeline-section">
+          <h2>זכויות ביטוח לאומי</h2>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">זכות</th>
+                  <th scope="col">מי זכאי</th>
+                  <th scope="col">סכום</th>
+                  <th scope="col">הגשה</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>מענק פטירה</td>
+                  <td>בן/בת זוג</td>
+                  <td>₪10,514</td>
+                  <td>אוטומטי</td>
+                </tr>
+                <tr>
+                  <td>קצבת שאירים - גיל 40-50</td>
+                  <td>אלמן/ה</td>
+                  <td>₪1,381/חודש</td>
+                  <td>תוך 12 חודש</td>
+                </tr>
+                <tr>
+                  <td>קצבת שאירים - גיל 50+</td>
+                  <td>אלמן/ה</td>
+                  <td>₪1,838/חודש</td>
+                  <td>תוך 12 חודש</td>
+                </tr>
+                <tr>
+                  <td>קצבת יתום</td>
+                  <td>יתום משני הורים</td>
+                  <td>₪2,284/חודש</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout--amber" style="margin-top: var(--space-lg);">
+            <strong>⚠️ מועד אחרון: 12 חודש מהפטירה.</strong>
+            <p>לאחר מכן - רק מתאריך הגשת הבקשה.</p>
+          </div>
+          <p class="text-muted mt-md" style="font-size:0.85rem;">מקור: <a href="https://www.btl.gov.il/benefits/Survivors/Pages/default.aspx" target="_blank" rel="noopener">btl.gov.il/benefits/Survivors</a></p>
+        </section>
+      </div>
+
+      <!-- SECTION: תוך שנה -->
+      <div class="dynamic-content" id="section-year">
+        <hr class="section-divider">
+        <section class="timeline-section">
+          <h2>תוך שנה - עיזבון וירושה</h2>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">מה לעשות</th>
+                  <th scope="col">היכן</th>
+                  <th scope="col">קישור</th>
+                  <th scope="col">הערה</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>צו ירושה / צו קיום צוואה</td>
+                  <td>רשם הירושות</td>
+                  <td><a href="https://www.gov.il/he/service/request-for-inheritance-order" target="_blank" rel="noopener">gov.il</a></td>
+                  <td>45-60 יום, אגרה ₪495</td>
+                </tr>
+                <tr>
+                  <td>העברת נדל"ן (טאבו)</td>
+                  <td>רשם המקרקעין</td>
+                  <td><a href="realestate.html">מדריך נדל"ן</a></td>
+                  <td>₪183 אגרה</td>
+                </tr>
+                <tr>
+                  <td>מימוש ביטוח חיים</td>
+                  <td>חברת הביטוח</td>
+                  <td><a href="https://harb.cma.gov.il" target="_blank" rel="noopener">harb.cma.gov.il</a></td>
+                  <td>בדוק בהר הביטוח</td>
+                </tr>
+                <tr>
+                  <td>הקמת מצבה</td>
+                  <td>חברה קדישא / ספק פרטי</td>
+                  <td>-</td>
+                  <td>בד"כ לאחר 11 חודש</td>
+                </tr>
+                <tr>
+                  <td>סגירת תיק מס הכנסה</td>
+                  <td>רשות המסים</td>
+                  <td><a href="https://www.gov.il/he/departments/israel_tax_authority" target="_blank" rel="noopener">gov.il</a></td>
+                  <td>דו"ח סופי לשנת הפטירה</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <!-- SECTION: מוות בחו"ל - נושאים נוספים -->
+      <div class="dynamic-content" id="section-abroad-extra">
+        <hr class="section-divider">
+        <section class="timeline-section">
+          <h2>מוות בחו"ל - נושאים נוספים</h2>
+          <ul style="list-style: none; padding: 0;">
+            <li style="padding: var(--space-sm) 0;">📌 ביטול דרכון: יש לפנות לשגרירות הישראלית</li>
+            <li style="padding: var(--space-sm) 0;">📌 נכסים בחו"ל: ייתכן מס עזבון מקומי - בדקו עם עורך דין</li>
+            <li style="padding: var(--space-sm) 0;">📌 מידע מהשגרירות: <a href="https://govextra.gov.il/mfa/" target="_blank" rel="noopener">govextra.gov.il/mfa/</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- PART 3: BOTTOM BUTTONS -->
+      <div class="dynamic-content" id="section-bottom">
+        <div class="bottom-buttons">
+          <a href="checklist.html" class="btn btn--primary">הדפס / שמור צ׳קליסט ←</a>
+          <a href="hashvaah.html" class="btn btn--secondary">השוואת סוגי קבורה ←</a>
         </div>
-      </section>
+      </div>
 
-      <!-- Bottom Actions -->
-      <div class="bottom-actions">
-        <a href="checklist.html" class="btn btn--primary">הדפס / שמור צ׳קליסט PDF</a>
-        <a href="hashvaah.html" class="btn btn--secondary">מה ההבדל בין קבורה דתית לאזרחית?</a>
+      <!-- Bottom disclaimer -->
+      <div class="dynamic-content" id="section-bottom-disclaimer">
+        <p class="disclaimer" style="margin-top: var(--space-2xl); text-align: center;">מידע זה אינו ייעוץ משפטי, רפואי או פיננסי. לאישור - פנה לגורם הרשמי המצוין.</p>
       </div>
 
     </div>
@@ -333,5 +714,104 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    (function() {
+      var location = localStorage.getItem('maslul-filter-location') || '';
+      var burial = localStorage.getItem('maslul-filter-burial') || '';
+
+      var locationCards = document.querySelectorAll('#filter-location .filter-card');
+      var burialCards = document.querySelectorAll('#filter-burial .filter-card');
+
+      // Restore saved state
+      if (location) selectCard(locationCards, location);
+      if (burial) selectCard(burialCards, burial);
+      updateContent();
+
+      // Location card clicks
+      locationCards.forEach(function(card) {
+        card.addEventListener('click', function() {
+          location = card.getAttribute('data-value');
+          localStorage.setItem('maslul-filter-location', location);
+          selectCard(locationCards, location);
+          updateContent();
+        });
+        card.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+        });
+      });
+
+      // Burial card clicks
+      burialCards.forEach(function(card) {
+        card.addEventListener('click', function() {
+          burial = card.getAttribute('data-value');
+          localStorage.setItem('maslul-filter-burial', burial);
+          selectCard(burialCards, burial);
+          updateContent();
+        });
+        card.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+        });
+      });
+
+      function selectCard(cards, value) {
+        cards.forEach(function(c) {
+          var isSelected = c.getAttribute('data-value') === value;
+          c.classList.toggle('selected', isSelected);
+          c.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+        });
+      }
+
+      function updateContent() {
+        var hasLocation = !!location;
+
+        // Show/hide main sections
+        toggle('section-now', hasLocation);
+        toggle('section-24h', hasLocation);
+        toggle('section-week', hasLocation);
+        toggle('section-month', hasLocation);
+        toggle('section-btl', hasLocation);
+        toggle('section-year', hasLocation);
+        toggle('section-bottom', hasLocation);
+        toggle('section-bottom-disclaimer', hasLocation);
+
+        // Burial comparison: only when Z selected
+        toggle('section-burial-compare', burial === 'Z');
+
+        // Abroad extra section: only when D selected
+        toggle('section-abroad-extra', location === 'D');
+
+        // Location-specific content in "first hours"
+        document.querySelectorAll('.location-content').forEach(function(el) {
+          el.style.display = el.getAttribute('data-location') === location ? '' : 'none';
+        });
+
+        // Burial type X vs Y text toggles
+        var isY = burial === 'Y';
+        document.querySelectorAll('.burial-x-text').forEach(function(el) {
+          el.style.display = isY ? 'none' : '';
+        });
+        document.querySelectorAll('.burial-y-text').forEach(function(el) {
+          el.style.display = isY ? '' : 'none';
+        });
+
+        // Tahara checklist item: only for religious burial
+        var taharaItems = document.querySelectorAll('.burial-x-only');
+        taharaItems.forEach(function(el) {
+          el.style.display = (burial === 'Y') ? 'none' : '';
+        });
+      }
+
+      function toggle(id, show) {
+        var el = document.getElementById(id);
+        if (el) {
+          if (show) {
+            el.classList.add('visible');
+          } else {
+            el.classList.remove('visible');
+          }
+        }
+      }
+    })();
+  </script>
 </body>
 </html>
