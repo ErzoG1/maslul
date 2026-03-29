@@ -19,14 +19,14 @@
   </script>
   <style>
     /* Filter cards */
-    .filter-section { margin-bottom: var(--space-xl); }
-    .filter-question { margin-bottom: var(--space-lg); }
-    .filter-question h3 { margin-bottom: var(--space-md); font-size: 1.1rem; }
-    .filter-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-md); }
+    .filter-section { margin-bottom: var(--space-md); }
+    .filter-question { margin-bottom: var(--space-sm); }
+    .filter-question h3 { margin-bottom: var(--space-xs); font-size: 1rem; }
+    .filter-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-sm); }
     .filter-card {
       border: 2px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-lg);
+      border-radius: var(--radius-md);
+      padding: var(--space-sm) var(--space-sm);
       text-align: center;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -38,9 +38,9 @@
       background: #e8f4f5;
       box-shadow: 0 0 0 1px var(--color-primary);
     }
-    .filter-card .filter-icon { font-size: 1.8rem; margin-bottom: var(--space-sm); }
-    .filter-card .filter-label { font-weight: 700; font-size: 0.95rem; margin-bottom: var(--space-xs); }
-    .filter-card .filter-desc { font-size: 0.8rem; color: var(--color-muted); }
+    .filter-card .filter-icon { font-size: 1.3rem; margin-bottom: 2px; }
+    .filter-card .filter-label { font-weight: 700; font-size: 0.85rem; margin-bottom: 0; }
+    .filter-card .filter-desc { font-size: 0.75rem; color: var(--color-muted); line-height: 1.3; }
 
     /* Dynamic content */
     .dynamic-content { display: none; }
@@ -91,11 +91,11 @@
 
     @media (max-width: 767px) {
       .filter-cards { grid-template-columns: 1fr 1fr; }
-      .filter-card { padding: var(--space-md); }
-      .filter-card .filter-icon { font-size: 1.4rem; }
+      .filter-card { padding: var(--space-xs) var(--space-sm); }
+      .filter-card .filter-icon { font-size: 1.2rem; }
     }
     @media (max-width: 479px) {
-      .filter-cards { grid-template-columns: 1fr; }
+      .filter-cards { grid-template-columns: 1fr 1fr; }
     }
 
     /* Remove box styling on this page */
