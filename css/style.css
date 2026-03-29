@@ -731,8 +731,72 @@ a:focus-visible {
   border: none;
 }
 
+.callout--amber {
+  background: #fef9ee;
+  border-right: 4px solid #C4903A;
+}
+
 .callout p:last-child {
   margin-bottom: 0;
+}
+
+/* ===== Section Divider ===== */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-2xl) 0;
+}
+
+/* ===== Services Accordion ===== */
+.services-accordion {
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.services-accordion summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  background: #5C7A5F;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+  border-radius: var(--radius-md);
+  transition: background 0.2s;
+}
+
+.services-accordion[open] summary {
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.services-accordion summary:hover {
+  background: #4d6a50;
+}
+
+.services-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.services-accordion summary::before {
+  content: "\25B8";
+  display: inline-block;
+  transition: transform 0.2s;
+  font-size: 0.85rem;
+}
+
+.services-accordion[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.services-accordion .source-cards {
+  padding: var(--space-lg);
+  background: #f7faf7;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
 }
 
 .callout strong {
@@ -1130,6 +1194,13 @@ a:focus-visible {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+/* ===== Mobile hero overlay margins ===== */
+@media (max-width: 767px) {
+  .hero-overlay {
+    max-width: calc(100% - 60px);
+  }
 }
 
 /* ===== Responsive: 480px+ ===== */
