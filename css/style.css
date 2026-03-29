@@ -1209,7 +1209,7 @@ a:focus-visible {
     padding: 0 var(--space-sm);
   }
   .hero-overlay {
-    max-width: calc(100% - 32px);
+    max-width: calc(100% - 40px);
     padding: var(--space-md) var(--space-md);
   }
   .hero h1 {
