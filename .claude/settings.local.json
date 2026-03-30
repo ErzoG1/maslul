@@ -32,7 +32,9 @@
       "Bash(cd /tmp)",
       "Bash(npm install:*)",
       "Bash(do sed:*)",
-      "Bash(grep -c 'G-9X5LZYEQ0G' *.html)"
+      "Bash(grep -c 'G-9X5LZYEQ0G' *.html)",
+      "Bash(grep -rn \"disclaimer-banner\" *.html)",
+      "Bash(grep -c \"מידע זה אינו מהווה\" *.html)"
     ]
   }
 }

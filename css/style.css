@@ -1209,8 +1209,9 @@ a:focus-visible {
     padding: 0 var(--space-sm);
   }
   .hero-overlay {
-    max-width: calc(100% - 40px);
-    padding: var(--space-md) var(--space-md);
+    max-width: none;
+    width: calc(100% - 40px);
+    padding: var(--space-md) 20px;
   }
   .hero h1 {
     font-size: 1.35rem;
