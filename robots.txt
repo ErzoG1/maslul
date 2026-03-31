@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://erzog1.github.io/maslul/sitemap.xml
