@@ -126,6 +126,47 @@
       .filter-card { padding: var(--space-xs) var(--space-sm); }
     }
 
+    /* FAQ Toggles */
+    .faq-toggle {
+      margin-bottom: var(--space-xs);
+      border-radius: var(--radius-md);
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+    }
+    .faq-toggle summary {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-md) var(--space-lg);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
+      transition: background 0.2s;
+    }
+    .faq-toggle summary:hover { background: #f5f7f7; }
+    .faq-toggle summary::-webkit-details-marker { display: none; }
+    .faq-toggle summary::before {
+      content: "\25B8";
+      display: inline-block;
+      transition: transform 0.2s;
+      font-size: 0.75rem;
+      color: var(--color-primary);
+    }
+    .faq-toggle[open] summary::before { transform: rotate(90deg); }
+    .faq-toggle[open] summary { border-bottom: 1px solid var(--color-border); }
+    .faq-answer {
+      padding: var(--space-md) var(--space-lg);
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
     /* Remove box styling on this page */
     .timeline-section {
       background-color: transparent;
@@ -674,6 +715,106 @@
             <li style="padding: var(--space-sm) 0;">📌 נכסים בחו"ל: ייתכן מס עזבון מקומי - בדקו עם עורך דין</li>
 
           </ul>
+        </section>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="dynamic-content" id="section-faq">
+        <hr class="section-divider">
+        <section class="timeline-section" itemscope itemtype="https://schema.org/FAQPage">
+          <h2>שאלות נפוצות</h2>
+
+          <details class="faq-toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">מה עושים מיד אחרי פטירה?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">מיד לאחר פטירה יש לקבל הודעת פטירה רשמית מהמוסד הרפואי (בקשו 3 עותקים חתומים), להוציא רישיון קבורה, וליצור קשר עם חברה קדישא (*0120) או חברת קבורה אזרחית לתיאום ההלוויה.</p>
+            </div>
+          </details>
+
+          <details class="faq-toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">מה ההבדל בין קבורה דתית לקבורה אזרחית?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">קבורה דתית מתבצעת ע"י חברה קדישא, ללא ארון, עם תכריכים ותפילות. קבורה אזרחית מתבצעת בארון עץ עם טקס חילוני לפי בחירת המשפחה. ביטוח לאומי מממן קבורה דתית במלואה ואזרחית בחלקה. <a href="hashvaah.html">להשוואה המלאה ←</a></p>
+            </div>
+          </details>
+
+          <details class="faq-toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">מה מממן ביטוח לאומי בעת פטירה?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">ביטוח לאומי מממן קבורה דתית במלואה ואזרחית בחלקה. בנוסף ניתן לתבוע: מענק פטירה (כ-₪10,514), קצבת שאירים לאלמן/ה (₪1,381-₪1,838 לחודש), וקצבת יתום. יש לתבוע תוך 12 חודשים.</p>
+            </div>
+          </details>
+
+          <details class="faq-toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">מה זה רישיון קבורה ואיך מוציאים אותו?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">רישיון קבורה הוא מסמך רשמי המאשר שניתן לקבור את הנפטר. במוסד רפואי — מוציאים אותו ממדור הקבלה. בפטירה בבית — מלשכת הבריאות המחוזית. במוות לא טבעי — המכון לרפואה משפטית מוציא אותו. חובה לקבל את הרישיון לפני כל הובלה של הגופה.</p>
+            </div>
+          </details>
+
+          <details class="faq-toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">מה קורה כשאדם נפטר בבית?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">יש להתקשר למד"א (101). רופא או חובש יגיע להכריז על המוות רשמית. לאחר מכן המשטרה תגיע — זה נורמלי ושגרתי. מד"א יוציא 3 עותקים של הודעת פטירה, ואז יש לפנות ללשכת הבריאות המחוזית לרישיון קבורה.</p>
+            </div>
+          </details>
+
+          <details class="faq-toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">מה קורה במוות לא טבעי או פתאומי?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">הגופה מועברת אוטומטית למכון לרפואה משפטית (אבו כביר, טלפון: 03-6074200). הבדיקה אורכת בדרך כלל 24-72 שעות. ניתן להתנגד לנתיחה — יש להצהיר בהקדם. רק לאחר סיום הבדיקה מוציאים רישיון קבורה וניתן לתאם הלוויה.</p>
+            </div>
+          </details>
+
+          <details class="faq-toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">מה עושים כשישראלי נפטר בחו"ל?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">יש לפנות לשגרירות ישראל במדינה הרלוונטית. צריך להחליט בין קבורה מקומית להחזרת הגופה לישראל. עלות החזרה (repatriation) מינימום €5,000-$8,000. כדאי לבדוק כיסוי ביטוח נסיעות. תושב ישראל שנפטר בחו"ל — ביטוח לאומי מממן קבורה בעיר מגוריו.</p>
+            </div>
+          </details>
+
+          <details class="faq-toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">איך מקבלים תעודת פטירה רשמית?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">תעודת פטירה רשמית מונפקת ע"י משרד הפנים. יש לפנות תוך 30 יום מהפטירה. התהליך אורך כ-2 שבועות. תעודה זו נדרשת לפעולות מול בנקים, ביטוח לאומי, רשם הירושות ומוסדות נוספים.</p>
+            </div>
+          </details>
+
+          <details class="faq-toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">מה קורה לחשבון הבנק של הנפטר?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">ברגע שהבנק מקבל הודעה על הפטירה, החשבון מוקפא. לא ניתן למשוך כספים ללא צו ירושה או צו קיום צוואה. הוראות קבע ממשיכות לרוץ. יש להודיע לכל בנק בנפרד. <a href="banks.html">למדריך הבנקים המלא ←</a></p>
+            </div>
+          </details>
+
+          <details class="faq-toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">מהו צו ירושה וכמה זמן לוקח לקבל אותו?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">צו ירושה (כשאין צוואה) או צו קיום צוואה מונפק ע"י רשם הירושות. הגשת הבקשה עולה אגרה של ₪495. התהליך לוקח 45-60 יום. הצו נדרש כדי לגשת לחשבונות בנק, להעביר נדל"ן בטאבו, ולממש ביטוחים.</p>
+            </div>
+          </details>
+
+          <details class="faq-toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">איך מוצאים את כל הביטוחים והפנסיות של הנפטר?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">באתר "הר הביטוח" של רשות שוק ההון (harb.cma.gov.il) ניתן לאתר את כל פוליסות הביטוח, קרנות הפנסיה וקופות הגמל של הנפטר. השירות חינמי ומומלץ לבצע בהקדם כדי לא לפספס זכויות.</p>
+            </div>
+          </details>
+
+          <details class="faq-toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">מתי מקימים מצבה?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">הזמן להקמת מצבה תלוי בעדה ובמסורת המשפחתית. ניתן להזמין מצבה דרך חברה קדישא או ספק פרטי. חלק מחברות הקבורה מציעות חבילות הכוללות מצבה.</p>
+            </div>
+          </details>
+
+          <details class="faq-toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">מתי צריך עורך דין לאחר פטירה?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">עורך דין מומלץ כשיש סכסוך על ירושה, כשהצוואה מורכבת, כשיש נדל"ן להעביר, או כשיש חובות/עסקים. לצו ירושה פשוט ללא סכסוך — ניתן לפעול לבד. <a href="lawyer-guide.html">למדריך עורכי דין ←</a></p>
+            </div>
+          </details>
+
         </section>
       </div>
 
